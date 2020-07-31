@@ -45,11 +45,12 @@ public class SystemDashboard extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1400, 750));
         setMinimumSize(new java.awt.Dimension(1400, 750));
+        setName("SystemDashboard"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1400, 750));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 65)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Time Table Managemnt System");
+        jLabel2.setText("Time Table Management System");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/backgroung3.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -213,38 +214,47 @@ public class SystemDashboard extends javax.swing.JFrame {
 
     private void SystemSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemSubjectActionPerformed
         // TODO add your handling code here:
+        new SystemSubject().setVisible(true);
     }//GEN-LAST:event_SystemSubjectActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+         
     }//GEN-LAST:event_jButton10ActionPerformed
 
     /**

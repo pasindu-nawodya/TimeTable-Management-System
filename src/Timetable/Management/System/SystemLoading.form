@@ -103,7 +103,7 @@
           <Font name="Times New Roman" size="65" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Time Table Managemnt System"/>
+        <Property name="text" type="java.lang.String" value="Time Table Management System"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
