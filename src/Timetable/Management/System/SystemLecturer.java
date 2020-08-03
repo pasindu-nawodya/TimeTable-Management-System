@@ -27,7 +27,18 @@ public class SystemLecturer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        AddLecturer = new javax.swing.JButton();
+        EditLecturer = new javax.swing.JButton();
+        ViewLecturer = new javax.swing.JButton();
+        RemoveLecturer = new javax.swing.JButton();
+        Back = new javax.swing.JButton();
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Lecturer Dashboard");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1400, 750));
@@ -35,28 +46,126 @@ public class SystemLecturer extends javax.swing.JFrame {
         setName("SystemLecturer"); // NOI18N
         setSize(new java.awt.Dimension(1400, 750));
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Lecturer.jpg"))); // NOI18N
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        jLabel1.setText("System Lecturer");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Lecturer Dashboard");
+
+        AddLecturer.setBackground(new java.awt.Color(204, 204, 204));
+        AddLecturer.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        AddLecturer.setText("Add Lecturer Details");
+        AddLecturer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddLecturerActionPerformed(evt);
+            }
+        });
+
+        EditLecturer.setBackground(new java.awt.Color(204, 204, 204));
+        EditLecturer.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        EditLecturer.setText("Edit Lecturer Details");
+        EditLecturer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditLecturerActionPerformed(evt);
+            }
+        });
+
+        ViewLecturer.setBackground(new java.awt.Color(204, 204, 204));
+        ViewLecturer.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        ViewLecturer.setText("View Lecturer Details");
+        ViewLecturer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewLecturerActionPerformed(evt);
+            }
+        });
+
+        RemoveLecturer.setBackground(new java.awt.Color(204, 204, 204));
+        RemoveLecturer.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        RemoveLecturer.setText("Remove Lecturer Details");
+        RemoveLecturer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveLecturerActionPerformed(evt);
+            }
+        });
+
+        Back.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        Back.setText("Home");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(495, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(335, 335, 335))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(275, 275, 275)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 421, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(AddLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(76, 76, 76)
+                                .addComponent(EditLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(84, 84, 84)
+                                .addComponent(ViewLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(72, 72, 72)
+                                .addComponent(RemoveLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(197, 197, 197)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(452, Short.MAX_VALUE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EditLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ViewLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RemoveLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AddLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddLecturerActionPerformed
+        // TODO add your handling code here:
+        new AddLecturer().setVisible(true);
+       dispose();
+    }//GEN-LAST:event_AddLecturerActionPerformed
+
+    private void EditLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditLecturerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EditLecturerActionPerformed
+
+    private void ViewLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewLecturerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ViewLecturerActionPerformed
+
+    private void RemoveLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveLecturerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoveLecturerActionPerformed
+
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_BackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,6 +203,13 @@ public class SystemLecturer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddLecturer;
+    private javax.swing.JButton Back;
+    private javax.swing.JButton EditLecturer;
+    private javax.swing.JButton RemoveLecturer;
+    private javax.swing.JButton ViewLecturer;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
