@@ -107,7 +107,7 @@ public class SystemLecturer extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(275, 275, 275)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 421, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -138,34 +138,36 @@ public class SystemLecturer extends javax.swing.JFrame {
                     .addComponent(RemoveLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddLecturerActionPerformed
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
-        new AddLecturer().setVisible(true);
-       dispose();
-    }//GEN-LAST:event_AddLecturerActionPerformed
-
-    private void EditLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditLecturerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EditLecturerActionPerformed
-
-    private void ViewLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewLecturerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ViewLecturerActionPerformed
+        dispose();
+    }//GEN-LAST:event_BackActionPerformed
 
     private void RemoveLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveLecturerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RemoveLecturerActionPerformed
 
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+    private void ViewLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewLecturerActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_ViewLecturerActionPerformed
+
+    private void EditLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditLecturerActionPerformed
+        // TODO add your handling code here:
+        new EditLecturer().setVisible(true);
         dispose();
-    }//GEN-LAST:event_BackActionPerformed
+    }//GEN-LAST:event_EditLecturerActionPerformed
+
+    private void AddLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddLecturerActionPerformed
+        // TODO add your handling code here:
+        new AddLecturer().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_AddLecturerActionPerformed
 
     /**
      * @param args the command line arguments

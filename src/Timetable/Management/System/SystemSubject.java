@@ -135,7 +135,7 @@ public class SystemSubject extends javax.swing.JFrame {
                     .addComponent(RemoveSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -143,6 +143,7 @@ public class SystemSubject extends javax.swing.JFrame {
 
     private void AddSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSubjectActionPerformed
         // TODO add your handling code here:
+        new AddSubject().setVisible(true);
         dispose();
     }//GEN-LAST:event_AddSubjectActionPerformed
 
@@ -153,6 +154,8 @@ public class SystemSubject extends javax.swing.JFrame {
 
     private void EditSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditSubjectActionPerformed
         // TODO add your handling code here:
+        new EditSubject().setVisible(true);
+        dispose();
     }//GEN-LAST:event_EditSubjectActionPerformed
 
     private void ViewSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewSubjectActionPerformed
