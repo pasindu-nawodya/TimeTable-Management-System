@@ -160,10 +160,14 @@ public class SystemSubject extends javax.swing.JFrame {
 
     private void ViewSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewSubjectActionPerformed
         // TODO add your handling code here:
+        new ViewDeleteRemoveSubject().setVisible(true);
+        dispose();
     }//GEN-LAST:event_ViewSubjectActionPerformed
 
     private void RemoveSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveSubjectActionPerformed
         // TODO add your handling code here:
+        new ViewDeleteRemoveSubject().setVisible(true);
+        dispose();
     }//GEN-LAST:event_RemoveSubjectActionPerformed
 
     /**

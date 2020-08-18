@@ -41,6 +41,7 @@ public class SystemLecturer extends javax.swing.JFrame {
         jLabel3.setText("Lecturer Dashboard");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Time Table Management System");
         setMaximumSize(new java.awt.Dimension(1400, 750));
         setMinimumSize(new java.awt.Dimension(1400, 750));
         setName("SystemLecturer"); // NOI18N
@@ -151,10 +152,14 @@ public class SystemLecturer extends javax.swing.JFrame {
 
     private void RemoveLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveLecturerActionPerformed
         // TODO add your handling code here:
+        new ViewDeleteRemoveLecturer().setVisible(true);
+        dispose();
     }//GEN-LAST:event_RemoveLecturerActionPerformed
 
     private void ViewLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewLecturerActionPerformed
         // TODO add your handling code here:
+        new ViewDeleteRemoveLecturer().setVisible(true);
+        dispose();
     }//GEN-LAST:event_ViewLecturerActionPerformed
 
     private void EditLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditLecturerActionPerformed

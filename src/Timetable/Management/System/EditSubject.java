@@ -40,14 +40,16 @@ public class EditSubject extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        AddLecturer = new javax.swing.JButton();
-        BackLecturer = new javax.swing.JButton();
+        EditSubject = new javax.swing.JButton();
+        BacSubject = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
+        submitID = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Time Table Management System");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/EditSub.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -99,27 +101,27 @@ public class EditSubject extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel9.setText("Eval. Hours       :");
 
-        AddLecturer.setBackground(new java.awt.Color(204, 204, 204));
-        AddLecturer.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        AddLecturer.setText("Edit");
-        AddLecturer.setMaximumSize(new java.awt.Dimension(63, 29));
-        AddLecturer.setMinimumSize(new java.awt.Dimension(63, 29));
-        AddLecturer.setPreferredSize(new java.awt.Dimension(63, 29));
-        AddLecturer.addActionListener(new java.awt.event.ActionListener() {
+        EditSubject.setBackground(new java.awt.Color(204, 204, 204));
+        EditSubject.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        EditSubject.setText("Edit");
+        EditSubject.setMaximumSize(new java.awt.Dimension(63, 29));
+        EditSubject.setMinimumSize(new java.awt.Dimension(63, 29));
+        EditSubject.setPreferredSize(new java.awt.Dimension(63, 29));
+        EditSubject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddLecturerActionPerformed(evt);
+                EditSubjectActionPerformed(evt);
             }
         });
 
-        BackLecturer.setBackground(new java.awt.Color(204, 204, 204));
-        BackLecturer.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        BackLecturer.setText("Back");
-        BackLecturer.setMaximumSize(new java.awt.Dimension(63, 29));
-        BackLecturer.setMinimumSize(new java.awt.Dimension(63, 29));
-        BackLecturer.setPreferredSize(new java.awt.Dimension(63, 29));
-        BackLecturer.addActionListener(new java.awt.event.ActionListener() {
+        BacSubject.setBackground(new java.awt.Color(204, 204, 204));
+        BacSubject.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        BacSubject.setText("Back");
+        BacSubject.setMaximumSize(new java.awt.Dimension(63, 29));
+        BacSubject.setMinimumSize(new java.awt.Dimension(63, 29));
+        BacSubject.setPreferredSize(new java.awt.Dimension(63, 29));
+        BacSubject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackLecturerActionPerformed(evt);
+                BacSubjectActionPerformed(evt);
             }
         });
 
@@ -159,19 +161,26 @@ public class EditSubject extends javax.swing.JFrame {
             }
         });
 
+        submitID.setBackground(new java.awt.Color(204, 204, 204));
+        submitID.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        submitID.setText("submit");
+        submitID.setMaximumSize(new java.awt.Dimension(63, 29));
+        submitID.setMinimumSize(new java.awt.Dimension(63, 29));
+        submitID.setPreferredSize(new java.awt.Dimension(63, 29));
+        submitID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitIDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1400, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(370, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(534, 534, 534))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -180,15 +189,14 @@ public class EditSubject extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel7)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))))
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(AddLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(EditSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
-                                .addComponent(BackLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(BacSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTextField4)
                                 .addComponent(jTextField3)
@@ -197,7 +205,14 @@ public class EditSubject extends javax.swing.JFrame {
                                 .addComponent(jTextField5)
                                 .addComponent(jTextField6)
                                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(343, 343, 343))))
+                        .addGap(343, 343, 343))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(submitID, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(443, 443, 443))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,8 +221,9 @@ public class EditSubject extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(submitID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -237,8 +253,8 @@ public class EditSubject extends javax.swing.JFrame {
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BackLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EditSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BacSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47))
         );
 
@@ -253,15 +269,15 @@ public class EditSubject extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
-    private void AddLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddLecturerActionPerformed
+    private void EditSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditSubjectActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AddLecturerActionPerformed
+    }//GEN-LAST:event_EditSubjectActionPerformed
 
-    private void BackLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackLecturerActionPerformed
+    private void BacSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BacSubjectActionPerformed
         // TODO add your handling code here:
         new SystemLecturer().setVisible(true);
         dispose();
-    }//GEN-LAST:event_BackLecturerActionPerformed
+    }//GEN-LAST:event_BacSubjectActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -278,6 +294,10 @@ public class EditSubject extends javax.swing.JFrame {
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void submitIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_submitIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,8 +335,8 @@ public class EditSubject extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddLecturer;
-    private javax.swing.JButton BackLecturer;
+    private javax.swing.JButton BacSubject;
+    private javax.swing.JButton EditSubject;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -334,5 +354,6 @@ public class EditSubject extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JButton submitID;
     // End of variables declaration//GEN-END:variables
 }

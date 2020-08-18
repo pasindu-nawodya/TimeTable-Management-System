@@ -52,27 +52,27 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton8" min="-2" pref="240" max="-2" attributes="0"/>
+                      <Component id="SystemStudent" min="-2" pref="240" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" pref="240" max="-2" attributes="0"/>
+                      <Component id="SystemLocation" min="-2" pref="240" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton3" min="-2" pref="240" max="-2" attributes="0"/>
+                      <Component id="SystemTag" min="-2" pref="240" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton5" min="-2" pref="240" max="-2" attributes="0"/>
+                      <Component id="SystemWorkDays" min="-2" pref="240" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton7" min="-2" pref="240" max="-2" attributes="0"/>
+                      <Component id="SystemStatistic" min="-2" pref="240" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton10" min="-2" pref="240" max="-2" attributes="0"/>
+                      <Component id="SystemSessionOther" min="-2" pref="240" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton6" min="-2" pref="240" max="-2" attributes="0"/>
+                      <Component id="SystemTimeTable" min="-2" pref="240" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton9" min="-2" pref="240" max="-2" attributes="0"/>
+                      <Component id="SystemSession" min="-2" pref="240" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
@@ -88,18 +88,18 @@
               <EmptySpace pref="39" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="SystemLecturer" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jButton8" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jButton4" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jButton6" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jButton9" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="SystemStudent" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="SystemLocation" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="SystemTimeTable" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="SystemSession" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="SystemSubject" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jButton5" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jButton7" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="jButton10" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="SystemTag" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="SystemWorkDays" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="SystemStatistic" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="SystemSessionOther" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
           </Group>
@@ -152,7 +152,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SystemSubjectActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="SystemTag">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -163,10 +163,10 @@
         <Property name="text" type="java.lang.String" value="Tags"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SystemTagActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="SystemLocation">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -177,10 +177,10 @@
         <Property name="text" type="java.lang.String" value="Location"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SystemLocationActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="SystemWorkDays">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -191,10 +191,10 @@
         <Property name="text" type="java.lang.String" value="Working Days &amp; Hours"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SystemWorkDaysActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="SystemTimeTable">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -205,10 +205,10 @@
         <Property name="text" type="java.lang.String" value="Time Table"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SystemTimeTableActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton7">
+    <Component class="javax.swing.JButton" name="SystemStatistic">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -219,10 +219,10 @@
         <Property name="text" type="java.lang.String" value="Statistic"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SystemStatisticActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton8">
+    <Component class="javax.swing.JButton" name="SystemStudent">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -233,10 +233,10 @@
         <Property name="text" type="java.lang.String" value="Student"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SystemStudentActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton9">
+    <Component class="javax.swing.JButton" name="SystemSession">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -247,10 +247,10 @@
         <Property name="text" type="java.lang.String" value="Session"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SystemSessionActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton10">
+    <Component class="javax.swing.JButton" name="SystemSessionOther">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -261,7 +261,7 @@
         <Property name="text" type="java.lang.String" value="Other Session"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SystemSessionOtherActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

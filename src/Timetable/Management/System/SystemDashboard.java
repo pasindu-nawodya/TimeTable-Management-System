@@ -31,14 +31,14 @@ public class SystemDashboard extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         SystemLecturer = new javax.swing.JButton();
         SystemSubject = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        SystemTag = new javax.swing.JButton();
+        SystemLocation = new javax.swing.JButton();
+        SystemWorkDays = new javax.swing.JButton();
+        SystemTimeTable = new javax.swing.JButton();
+        SystemStatistic = new javax.swing.JButton();
+        SystemStudent = new javax.swing.JButton();
+        SystemSession = new javax.swing.JButton();
+        SystemSessionOther = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Time Table Management System");
@@ -73,75 +73,75 @@ public class SystemDashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton3.setText("Tags");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        SystemTag.setBackground(new java.awt.Color(204, 204, 204));
+        SystemTag.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        SystemTag.setText("Tags");
+        SystemTag.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                SystemTagActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 204));
-        jButton4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton4.setText("Location");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        SystemLocation.setBackground(new java.awt.Color(204, 204, 204));
+        SystemLocation.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        SystemLocation.setText("Location");
+        SystemLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                SystemLocationActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(204, 204, 204));
-        jButton5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton5.setText("Working Days & Hours");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        SystemWorkDays.setBackground(new java.awt.Color(204, 204, 204));
+        SystemWorkDays.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        SystemWorkDays.setText("Working Days & Hours");
+        SystemWorkDays.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                SystemWorkDaysActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(204, 204, 204));
-        jButton6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton6.setText("Time Table");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        SystemTimeTable.setBackground(new java.awt.Color(204, 204, 204));
+        SystemTimeTable.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        SystemTimeTable.setText("Time Table");
+        SystemTimeTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                SystemTimeTableActionPerformed(evt);
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(204, 204, 204));
-        jButton7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton7.setText("Statistic");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        SystemStatistic.setBackground(new java.awt.Color(204, 204, 204));
+        SystemStatistic.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        SystemStatistic.setText("Statistic");
+        SystemStatistic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                SystemStatisticActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(204, 204, 204));
-        jButton8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton8.setText("Student");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        SystemStudent.setBackground(new java.awt.Color(204, 204, 204));
+        SystemStudent.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        SystemStudent.setText("Student");
+        SystemStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                SystemStudentActionPerformed(evt);
             }
         });
 
-        jButton9.setBackground(new java.awt.Color(204, 204, 204));
-        jButton9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton9.setText("Session");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        SystemSession.setBackground(new java.awt.Color(204, 204, 204));
+        SystemSession.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        SystemSession.setText("Session");
+        SystemSession.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                SystemSessionActionPerformed(evt);
             }
         });
 
-        jButton10.setBackground(new java.awt.Color(204, 204, 204));
-        jButton10.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton10.setText("Other Session");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        SystemSessionOther.setBackground(new java.awt.Color(204, 204, 204));
+        SystemSessionOther.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        SystemSessionOther.setText("Other Session");
+        SystemSessionOther.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                SystemSessionOtherActionPerformed(evt);
             }
         });
 
@@ -162,23 +162,23 @@ public class SystemDashboard extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SystemStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SystemLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SystemTag, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(SystemWorkDays, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SystemStatistic, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SystemSessionOther, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SystemTimeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(SystemSession, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(64, 64, 64))
         );
         layout.setVerticalGroup(
@@ -190,17 +190,17 @@ public class SystemDashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SystemLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SystemStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SystemLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SystemTimeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SystemSession, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SystemSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SystemTag, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SystemWorkDays, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SystemStatistic, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SystemSessionOther, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50))
         );
 
@@ -217,45 +217,45 @@ public class SystemDashboard extends javax.swing.JFrame {
         new SystemSubject().setVisible(true);
     }//GEN-LAST:event_SystemSubjectActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void SystemTagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemTagActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_SystemTagActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void SystemLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemLocationActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_SystemLocationActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void SystemWorkDaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemWorkDaysActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_SystemWorkDaysActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void SystemTimeTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemTimeTableActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_SystemTimeTableActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void SystemStatisticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemStatisticActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_SystemStatisticActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void SystemStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemStudentActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_SystemStudentActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void SystemSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemSessionActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_SystemSessionActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void SystemSessionOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemSessionOtherActionPerformed
         // TODO add your handling code here:
          
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_SystemSessionOtherActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,15 +294,15 @@ public class SystemDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SystemLecturer;
+    private javax.swing.JButton SystemLocation;
+    private javax.swing.JButton SystemSession;
+    private javax.swing.JButton SystemSessionOther;
+    private javax.swing.JButton SystemStatistic;
+    private javax.swing.JButton SystemStudent;
     private javax.swing.JButton SystemSubject;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton SystemTag;
+    private javax.swing.JButton SystemTimeTable;
+    private javax.swing.JButton SystemWorkDays;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables

@@ -5,6 +5,14 @@
  */
 package Timetable.Management.System;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author swpas
@@ -32,22 +40,24 @@ public class AddSubject extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        AddLecturer = new javax.swing.JButton();
+        labhourtxt = new javax.swing.JTextField();
+        AddSubject = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        yeartxt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        BackLecturer = new javax.swing.JButton();
+        subnametxt = new javax.swing.JTextField();
+        BackSubject = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
+        evalhourtxt = new javax.swing.JTextField();
+        subcodetxt = new javax.swing.JTextField();
+        tutehourtxt = new javax.swing.JTextField();
+        lechourtxt = new javax.swing.JTextField();
+        semcombo = new javax.swing.JComboBox<>();
+        sublist = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Time Table Management System");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/AddSub.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -64,53 +74,53 @@ public class AddSubject extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel9.setText("Lab Hours        :");
 
-        jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        labhourtxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
-        AddLecturer.setBackground(new java.awt.Color(204, 204, 204));
-        AddLecturer.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        AddLecturer.setText("Submit");
-        AddLecturer.setMaximumSize(new java.awt.Dimension(63, 29));
-        AddLecturer.setMinimumSize(new java.awt.Dimension(63, 29));
-        AddLecturer.setPreferredSize(new java.awt.Dimension(63, 29));
-        AddLecturer.addActionListener(new java.awt.event.ActionListener() {
+        AddSubject.setBackground(new java.awt.Color(204, 204, 204));
+        AddSubject.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        AddSubject.setText("Submit");
+        AddSubject.setMaximumSize(new java.awt.Dimension(63, 29));
+        AddSubject.setMinimumSize(new java.awt.Dimension(63, 29));
+        AddSubject.setPreferredSize(new java.awt.Dimension(63, 29));
+        AddSubject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddLecturerActionPerformed(evt);
+                AddSubjectActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setText("Offered Year      : ");
 
-        jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField2.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        yeartxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        yeartxt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        yeartxt.setDropMode(javax.swing.DropMode.INSERT);
+        yeartxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                yeartxtActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setText("Offered Sem      : ");
 
-        jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField4.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        subnametxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        subnametxt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        subnametxt.setDropMode(javax.swing.DropMode.INSERT);
+        subnametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                subnametxtActionPerformed(evt);
             }
         });
 
-        BackLecturer.setBackground(new java.awt.Color(204, 204, 204));
-        BackLecturer.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        BackLecturer.setText("Back");
-        BackLecturer.setMaximumSize(new java.awt.Dimension(63, 29));
-        BackLecturer.setMinimumSize(new java.awt.Dimension(63, 29));
-        BackLecturer.setPreferredSize(new java.awt.Dimension(63, 29));
-        BackLecturer.addActionListener(new java.awt.event.ActionListener() {
+        BackSubject.setBackground(new java.awt.Color(204, 204, 204));
+        BackSubject.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        BackSubject.setText("Back");
+        BackSubject.setMaximumSize(new java.awt.Dimension(63, 29));
+        BackSubject.setMinimumSize(new java.awt.Dimension(63, 29));
+        BackSubject.setPreferredSize(new java.awt.Dimension(63, 29));
+        BackSubject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackLecturerActionPerformed(evt);
+                BackSubjectActionPerformed(evt);
             }
         });
 
@@ -120,41 +130,47 @@ public class AddSubject extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel11.setText("Eval. Hour       :");
 
-        jTextField5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        evalhourtxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
-        jTextField6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField6.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField6.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        subcodetxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        subcodetxt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        subcodetxt.setDropMode(javax.swing.DropMode.INSERT);
+        subcodetxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                subcodetxtActionPerformed(evt);
             }
         });
 
-        jTextField7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField7.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField7.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        tutehourtxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        tutehourtxt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        tutehourtxt.setDropMode(javax.swing.DropMode.INSERT);
+        tutehourtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                tutehourtxtActionPerformed(evt);
             }
         });
 
-        jTextField8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField8.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField8.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        lechourtxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lechourtxt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        lechourtxt.setDropMode(javax.swing.DropMode.INSERT);
+        lechourtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                lechourtxtActionPerformed(evt);
             }
         });
 
-        jTextField9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField9.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField9.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        semcombo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        semcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1st Semester", "2nd Semester" }));
+
+        sublist.setBackground(new java.awt.Color(204, 204, 204));
+        sublist.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        sublist.setText("Subject List");
+        sublist.setMaximumSize(new java.awt.Dimension(63, 29));
+        sublist.setMinimumSize(new java.awt.Dimension(63, 29));
+        sublist.setPreferredSize(new java.awt.Dimension(63, 29));
+        sublist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                sublistActionPerformed(evt);
             }
         });
 
@@ -162,116 +178,181 @@ public class AddSubject extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1400, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(340, 340, 340)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel7))
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(AddLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(BackLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
-                    .addComponent(jTextField6)
-                    .addComponent(jTextField8)
-                    .addComponent(jTextField9)
-                    .addComponent(jTextField7))
-                .addContainerGap(325, Short.MAX_VALUE))
+                        .addGap(340, 340, 340)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7))
+                        .addGap(46, 46, 46))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(AddSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(yeartxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(subnametxt)
+                        .addComponent(labhourtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+                        .addComponent(evalhourtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+                        .addComponent(subcodetxt)
+                        .addComponent(tutehourtxt)
+                        .addComponent(lechourtxt)
+                        .addComponent(semcombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(sublist, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(BackSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(yeartxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(semcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 2, Short.MAX_VALUE)))
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(subnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(subcodetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 2, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lechourtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tutehourtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labhourtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(evalhourtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BackLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(AddSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BackSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sublist, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AddLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddLecturerActionPerformed
+    
+    //create connection    
+    Connection con;
+    PreparedStatement insert;
+    
+    private void AddSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSubjectActionPerformed
         // TODO add your handling code here:
+        //get form details
+        String year = yeartxt.getText();
+        String semester = (String)semcombo.getSelectedItem( );
+        String name = subnametxt.getText();
+        String code = subcodetxt.getText();
+        String lec = lechourtxt.getText();
+        String tute = tutehourtxt.getText();
+        String lab = labhourtxt.getText();
+        String eval = evalhourtxt.getText();
 
-    }//GEN-LAST:event_AddLecturerActionPerformed
+        try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/timetablems","root","1234");
+            
+            insert = con.prepareStatement("insert into subject(year,semester,name,code,lec,tute,lab,eval) values(?,?,?,?,?,?,?,?)");
+            insert.setString(1, year);
+            insert.setString(2, semester);
+            insert.setString(3, name);
+            insert.setString(4, code);
+            insert.setString(5, lec);
+            insert.setString(6, tute);
+            insert.setString(7, lab);
+            insert.setString(8, eval);
+            
+            insert.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Subject Added to the System!");
+            
+            yeartxt.setText("");
+            subnametxt.setText("");
+            subcodetxt.setText("");
+            lechourtxt.setText("");
+            tutehourtxt.setText("");
+            labhourtxt.setText("");
+            evalhourtxt.setText("");
+                        
+            yeartxt.requestFocus();
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddSubject.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (SQLException ex) {
+            Logger.getLogger(AddSubject.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_AddSubjectActionPerformed
+
+    private void yeartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yeartxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_yeartxtActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void subnametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subnametxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_subnametxtActionPerformed
 
-    private void BackLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackLecturerActionPerformed
+    private void BackSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackSubjectActionPerformed
         // TODO add your handling code here:
         new SystemSubject().setVisible(true);
         dispose();
-    }//GEN-LAST:event_BackLecturerActionPerformed
+    }//GEN-LAST:event_BackSubjectActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void subcodetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subcodetxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_subcodetxtActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void tutehourtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tutehourtxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_tutehourtxtActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void lechourtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lechourtxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_lechourtxtActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void sublistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sublistActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+        new subjectlist().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_sublistActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,8 +390,9 @@ public class AddSubject extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddLecturer;
-    private javax.swing.JButton BackLecturer;
+    private javax.swing.JButton AddSubject;
+    private javax.swing.JButton BackSubject;
+    private javax.swing.JTextField evalhourtxt;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -320,13 +402,13 @@ public class AddSubject extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField labhourtxt;
+    private javax.swing.JTextField lechourtxt;
+    private javax.swing.JComboBox<String> semcombo;
+    private javax.swing.JTextField subcodetxt;
+    private javax.swing.JButton sublist;
+    private javax.swing.JTextField subnametxt;
+    private javax.swing.JTextField tutehourtxt;
+    private javax.swing.JTextField yeartxt;
     // End of variables declaration//GEN-END:variables
 }
