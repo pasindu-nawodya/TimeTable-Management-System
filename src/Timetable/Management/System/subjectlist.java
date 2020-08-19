@@ -57,11 +57,11 @@ public class subjectlist extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Subject Name", "Subject Code", "Offered Year", "Lecture Hours", "Tutorial Hours", "Lab Hours", "Eval. Hours"
+                "Subject Name", "Subject Code", "Offered Year", "Offered sem", "Lecture Hours", "Tutorial Hours", "Lab Hours", "Eval. Hours"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -78,6 +78,7 @@ public class subjectlist extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(4).setResizable(false);
             jTable1.getColumnModel().getColumn(5).setResizable(false);
             jTable1.getColumnModel().getColumn(6).setResizable(false);
+            jTable1.getColumnModel().getColumn(7).setResizable(false);
         }
 
         closebtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -148,7 +149,8 @@ public class subjectlist extends javax.swing.JFrame {
                     for(int a=1;a<=c;a++){
                         v.add(rs.getString("name"));
                         v.add(rs.getString("code"));  
-                        v.add(rs.getString("year"));
+                        v.add(rs.getString("year")); 
+                        v.add(rs.getString("semester"));
                         v.add(rs.getString("lec"));
                         v.add(rs.getString("tute")); 
                         v.add(rs.getString("lab"));

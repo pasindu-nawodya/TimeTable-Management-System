@@ -5,6 +5,16 @@
  */
 package Timetable.Management.System;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author swpas
@@ -16,6 +26,7 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
      */
     public ViewDeleteRemoveLecturer() {
         initComponents();
+        getLecidCombo();
     }
 
     /**
@@ -28,25 +39,25 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        dept = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        faculty = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         BackLecturer = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        rank = new javax.swing.JTextField();
         removeLecBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        selectidcombo = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        submitID3 = new javax.swing.JButton();
+        name = new javax.swing.JTextField();
+        level = new javax.swing.JTextField();
+        center = new javax.swing.JTextField();
+        building = new javax.swing.JTextField();
+        submit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Time Table Management System");
@@ -54,13 +65,13 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Lecturer Name : ");
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField1.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        dept.setEditable(false);
+        dept.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        dept.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        dept.setDropMode(javax.swing.DropMode.INSERT);
+        dept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                deptActionPerformed(evt);
             }
         });
 
@@ -76,13 +87,13 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel5.setText("Building            :");
 
-        jTextField4.setEditable(false);
-        jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField4.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        faculty.setEditable(false);
+        faculty.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        faculty.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        faculty.setDropMode(javax.swing.DropMode.INSERT);
+        faculty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                facultyActionPerformed(evt);
             }
         });
 
@@ -104,8 +115,8 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel9.setText("Rank                 :");
 
-        jTextField3.setEditable(false);
-        jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        rank.setEditable(false);
+        rank.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         removeLecBtn.setBackground(new java.awt.Color(204, 204, 204));
         removeLecBtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -123,60 +134,60 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(51, 51, 255));
         jLabel3.setText("Select Lecture ID :");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00001", "00002", "00003" }));
+        selectidcombo.setSelectedIndex(-1);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/LecDetails.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
 
-        jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField2.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        name.setEditable(false);
+        name.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        name.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        name.setDropMode(javax.swing.DropMode.INSERT);
+        name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                nameActionPerformed(evt);
             }
         });
 
-        jTextField5.setEditable(false);
-        jTextField5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField5.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField5.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        level.setEditable(false);
+        level.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        level.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        level.setDropMode(javax.swing.DropMode.INSERT);
+        level.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                levelActionPerformed(evt);
             }
         });
 
-        jTextField6.setEditable(false);
-        jTextField6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField6.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField6.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        center.setEditable(false);
+        center.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        center.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        center.setDropMode(javax.swing.DropMode.INSERT);
+        center.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                centerActionPerformed(evt);
             }
         });
 
-        jTextField7.setEditable(false);
-        jTextField7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField7.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField7.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        building.setEditable(false);
+        building.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        building.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        building.setDropMode(javax.swing.DropMode.INSERT);
+        building.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                buildingActionPerformed(evt);
             }
         });
 
-        submitID3.setBackground(new java.awt.Color(204, 204, 204));
-        submitID3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        submitID3.setText("submit");
-        submitID3.setMaximumSize(new java.awt.Dimension(63, 29));
-        submitID3.setMinimumSize(new java.awt.Dimension(63, 29));
-        submitID3.setPreferredSize(new java.awt.Dimension(63, 29));
-        submitID3.addActionListener(new java.awt.event.ActionListener() {
+        submit.setBackground(new java.awt.Color(204, 204, 204));
+        submit.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        submit.setText("submit");
+        submit.setMaximumSize(new java.awt.Dimension(63, 29));
+        submit.setMinimumSize(new java.awt.Dimension(63, 29));
+        submit.setPreferredSize(new java.awt.Dimension(63, 29));
+        submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitID3ActionPerformed(evt);
+                submitActionPerformed(evt);
             }
         });
 
@@ -186,7 +197,7 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1406, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(389, Short.MAX_VALUE)
+                .addContainerGap(407, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(removeLecBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,22 +217,21 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(10, 10, 10)))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rank)
+                            .addComponent(dept)
+                            .addComponent(faculty)
+                            .addComponent(name)
+                            .addComponent(level)
+                            .addComponent(building)
+                            .addComponent(center, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(317, 317, 317))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(selectidcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(submitID3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(434, 434, 434))))
         );
         layout.setVerticalGroup(
@@ -232,36 +242,36 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(submitID3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(selectidcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(faculty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(center, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(building, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(level, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(removeLecBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -272,13 +282,39 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    Connection con;
+    PreparedStatement show;
+    
+    //get id list to combo
+    private void getLecidCombo(){
+        try { 
+             Class.forName("com.mysql.jdbc.Driver");
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/timetablems","root","1234");
+
+             Statement statement = connection.createStatement();
+             String query = "SELECT lecid FROM lecturer";
+             ResultSet rs = statement.executeQuery(query);
+
+             while (rs.next())
+             {      
+                String lid = rs.getString("lecid");         
+                selectidcombo.addItem(rs.getString("lecid"));
+             }//end while
+             connection.close();
+             } catch (Exception e) {
+                  e.printStackTrace();
+             }
+    }
+    
+    
+    private void deptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_deptActionPerformed
+
+    private void facultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facultyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_facultyActionPerformed
 
     private void BackLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackLecturerActionPerformed
         // TODO add your handling code here:
@@ -288,29 +324,83 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
 
     private void removeLecBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeLecBtnActionPerformed
         // TODO add your handling code here:
-        new SystemLecturer().setVisible(true);
-        dispose();
+        
+        Connection con;
+        PreparedStatement delete;
+        
+        String selectedIDs = (String)selectidcombo.getSelectedItem();
+        
+
+        try {
+            
+            int dialogres = JOptionPane.showConfirmDialog(null, "Do you want to remove "+selectedIDs+ " from the System?","Warning",JOptionPane.YES_NO_OPTION);
+            if(dialogres == JOptionPane.YES_OPTION){
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/timetablems","root","1234");
+            
+            delete = con.prepareStatement("delete from lecturer where lecid="+selectedIDs);
+            delete.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Lecturer "+ selectedIDs +" deleted successfully!");
+
+            new Lecturerlist().setVisible(true);
+            dispose();
+            
+            }
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddLecturer.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (SQLException ex) {
+            Logger.getLogger(AddLecturer.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
     }//GEN-LAST:event_removeLecBtnActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_nameActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void levelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_levelActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void centerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_centerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_centerActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void buildingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_buildingActionPerformed
 
-    private void submitID3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitID3ActionPerformed
+    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_submitID3ActionPerformed
+        String selectedID = (String)selectidcombo.getSelectedItem();
+               
+             try {
+            
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/timetablems","root","1234");
+
+                show = con.prepareStatement("select * from lecturer where lecid = "+selectedID);
+                ResultSet rs = show.executeQuery();
+                               
+                while (rs.next())
+                {      
+                   name.setText(rs.getString("name"));
+                   faculty.setText(rs.getString("faculty"));
+                   dept.setText(rs.getString("department"));
+                   center.setText(rs.getString("center"));
+                   building.setText(rs.getString("building"));
+                   level.setText(rs.getString("level"));
+                   rank.setText(rs.getString("rank"));
+                }//end while        
+                
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(subjectlist.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (SQLException ex) {
+                Logger.getLogger(subjectlist.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_submitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -350,7 +440,10 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackLecturer;
-    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JTextField building;
+    private javax.swing.JTextField center;
+    private javax.swing.JTextField dept;
+    private javax.swing.JTextField faculty;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -360,14 +453,11 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField level;
+    private javax.swing.JTextField name;
+    private javax.swing.JTextField rank;
     private javax.swing.JButton removeLecBtn;
-    private javax.swing.JButton submitID3;
+    private javax.swing.JComboBox<String> selectidcombo;
+    private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
 }

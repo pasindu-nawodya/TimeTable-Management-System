@@ -87,7 +87,7 @@ public class SystemSubject extends javax.swing.JFrame {
 
         RemoveSubject.setBackground(new java.awt.Color(204, 204, 204));
         RemoveSubject.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        RemoveSubject.setText("Remove Subject Details");
+        RemoveSubject.setText("Subject List");
         RemoveSubject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RemoveSubjectActionPerformed(evt);
@@ -166,7 +166,7 @@ public class SystemSubject extends javax.swing.JFrame {
 
     private void RemoveSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveSubjectActionPerformed
         // TODO add your handling code here:
-        new ViewDeleteRemoveSubject().setVisible(true);
+        new subjectlist().setVisible(true);
         dispose();
     }//GEN-LAST:event_RemoveSubjectActionPerformed
 

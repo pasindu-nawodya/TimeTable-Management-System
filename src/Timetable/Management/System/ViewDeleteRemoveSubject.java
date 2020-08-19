@@ -5,6 +5,16 @@
  */
 package Timetable.Management.System;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author swpas
@@ -16,6 +26,7 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
      */
     public ViewDeleteRemoveSubject() {
         initComponents();
+        getSubidCombo();
     }
 
     /**
@@ -29,21 +40,21 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
 
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        eval = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        selectidcombo = new javax.swing.JComboBox<>();
         removeSubBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         BackSubject = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        year = new javax.swing.JTextField();
+        sem = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        lec = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
+        lab = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        tute = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         submitID = new javax.swing.JButton();
@@ -57,8 +68,8 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/viewSubject.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
 
-        jTextField3.setEditable(false);
-        jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        eval.setEditable(false);
+        eval.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 255));
@@ -66,8 +77,6 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel9.setText("Eval. Hours       :");
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00001", "00002", "00003" }));
 
         removeSubBtn.setBackground(new java.awt.Color(204, 204, 204));
         removeSubBtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -96,69 +105,69 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField1.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        year.setEditable(false);
+        year.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        year.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        year.setDropMode(javax.swing.DropMode.INSERT);
+        year.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                yearActionPerformed(evt);
             }
         });
 
-        jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField2.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        sem.setEditable(false);
+        sem.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        sem.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        sem.setDropMode(javax.swing.DropMode.INSERT);
+        sem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                semActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setText("Offered Sem       :");
 
-        jTextField5.setEditable(false);
-        jTextField5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField5.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField5.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        lec.setEditable(false);
+        lec.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lec.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        lec.setDropMode(javax.swing.DropMode.INSERT);
+        lec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                lecActionPerformed(evt);
             }
         });
 
-        jTextField4.setEditable(false);
-        jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField4.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        name.setEditable(false);
+        name.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        name.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        name.setDropMode(javax.swing.DropMode.INSERT);
+        name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                nameActionPerformed(evt);
             }
         });
 
-        jTextField6.setEditable(false);
-        jTextField6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField6.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField6.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        lab.setEditable(false);
+        lab.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lab.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        lab.setDropMode(javax.swing.DropMode.INSERT);
+        lab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                labActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel7.setText("Subject Name    :");
 
-        jTextField7.setEditable(false);
-        jTextField7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField7.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField7.setDropMode(javax.swing.DropMode.INSERT);
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        tute.setEditable(false);
+        tute.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        tute.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        tute.setDropMode(javax.swing.DropMode.INSERT);
+        tute.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                tuteActionPerformed(evt);
             }
         });
 
@@ -203,19 +212,19 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addComponent(BackSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField4)
-                        .addComponent(jTextField3)
-                        .addComponent(jTextField1)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField5)
-                        .addComponent(jTextField6)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(name)
+                        .addComponent(eval)
+                        .addComponent(year)
+                        .addComponent(sem)
+                        .addComponent(lec)
+                        .addComponent(lab)
+                        .addComponent(tute, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(343, 343, 343))
             .addGroup(layout.createSequentialGroup()
                 .addGap(450, 450, 450)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(selectidcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(submitID, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -226,37 +235,37 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectidcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(submitID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(eval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(removeSubBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,11 +276,61 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    Connection con;
+    PreparedStatement show;
+    
+    //get id list to combo
+    private void getSubidCombo(){
+        try { 
+             Class.forName("com.mysql.jdbc.Driver");
+
+             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/timetablems","root","1234");
+
+             Statement statement = connection.createStatement();
+             String query = "SELECT code FROM subject";
+             ResultSet rs = statement.executeQuery(query);
+
+             while (rs.next())
+             {      
+                String lid = rs.getString("code");         
+                selectidcombo.addItem(rs.getString("code"));
+             }//end while
+             connection.close();
+             } catch (Exception e) {
+                  e.printStackTrace();
+             }
+    }
+    
     private void removeSubBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeSubBtnActionPerformed
         // TODO add your handling code here:
+       Connection con;
+        PreparedStatement delete;
         
-        new SystemSubject().setVisible(true);
-        dispose();
+        String selectedIDs = (String)selectidcombo.getSelectedItem();
+        
+
+        try {
+            
+            int dialogres = JOptionPane.showConfirmDialog(null, "Do you want to remove "+selectedIDs+ " from the System?","Warning",JOptionPane.YES_NO_OPTION);
+            if(dialogres == JOptionPane.YES_OPTION){
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/timetablems","root","1234");
+            
+            delete = con.prepareStatement("delete from subject where code= '"+selectedIDs+"'");
+            delete.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Subject "+ selectedIDs +" deleted successfully!");
+
+            new subjectlist().setVisible(true);
+            dispose();
+            
+            }
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddLecturer.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (SQLException ex) {
+            Logger.getLogger(AddLecturer.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }//GEN-LAST:event_removeSubBtnActionPerformed
 
     private void BackSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackSubjectActionPerformed
@@ -280,32 +339,59 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BackSubjectActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void yearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_yearActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void semActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_semActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_semActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void lecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lecActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_lecActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_nameActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void labActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_labActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_labActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void tuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tuteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_tuteActionPerformed
 
     private void submitIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitIDActionPerformed
         // TODO add your handling code here:
+        
+        String selectedID = (String)selectidcombo.getSelectedItem();
+               
+             try {
+            
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/timetablems","root","1234");
+
+                show = con.prepareStatement("select * from subject where code = '"+ selectedID+"'");
+                ResultSet rs = show.executeQuery();
+                               
+                while (rs.next())
+                {      
+                   year.setText(rs.getString("year"));
+                   sem.setText(rs.getString("semester"));
+                   name.setText(rs.getString("name"));
+                   lec.setText(rs.getString("lec"));
+                   tute.setText(rs.getString("tute"));
+                   lab.setText(rs.getString("lab"));
+                   eval.setText(rs.getString("eval"));
+                }//end while        
+                
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(subjectlist.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (SQLException ex) {
+                Logger.getLogger(subjectlist.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_submitIDActionPerformed
 
     /**
@@ -345,7 +431,7 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackSubject;
-    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JTextField eval;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -355,14 +441,14 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField lab;
+    private javax.swing.JTextField lec;
+    private javax.swing.JTextField name;
     private javax.swing.JButton removeSubBtn;
+    private javax.swing.JComboBox<String> selectidcombo;
+    private javax.swing.JTextField sem;
     private javax.swing.JButton submitID;
+    private javax.swing.JTextField tute;
+    private javax.swing.JTextField year;
     // End of variables declaration//GEN-END:variables
 }

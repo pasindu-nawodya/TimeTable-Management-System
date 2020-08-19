@@ -43,7 +43,6 @@ public class AddSubject extends javax.swing.JFrame {
         labhourtxt = new javax.swing.JTextField();
         AddSubject = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        yeartxt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         subnametxt = new javax.swing.JTextField();
         BackSubject = new javax.swing.JButton();
@@ -53,8 +52,9 @@ public class AddSubject extends javax.swing.JFrame {
         subcodetxt = new javax.swing.JTextField();
         tutehourtxt = new javax.swing.JTextField();
         lechourtxt = new javax.swing.JTextField();
-        semcombo = new javax.swing.JComboBox<>();
+        yearcombo = new javax.swing.JComboBox<>();
         sublist = new javax.swing.JButton();
+        semcombo1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Time Table Management System");
@@ -90,15 +90,6 @@ public class AddSubject extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setText("Offered Year      : ");
-
-        yeartxt.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        yeartxt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        yeartxt.setDropMode(javax.swing.DropMode.INSERT);
-        yeartxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yeartxtActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setText("Offered Sem      : ");
@@ -159,8 +150,8 @@ public class AddSubject extends javax.swing.JFrame {
             }
         });
 
-        semcombo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        semcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1st Semester", "2nd Semester" }));
+        yearcombo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        yearcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1st year", "2nd year", "3rd year", "4th year" }));
 
         sublist.setBackground(new java.awt.Color(204, 204, 204));
         sublist.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -173,6 +164,9 @@ public class AddSubject extends javax.swing.JFrame {
                 sublistActionPerformed(evt);
             }
         });
+
+        semcombo1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        semcombo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1st Semester", "2nd Semester" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -199,14 +193,14 @@ public class AddSubject extends javax.swing.JFrame {
                         .addGap(15, 15, 15)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(yeartxt, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(subnametxt)
                         .addComponent(labhourtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
                         .addComponent(evalhourtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
                         .addComponent(subcodetxt)
                         .addComponent(tutehourtxt)
                         .addComponent(lechourtxt)
-                        .addComponent(semcombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(yearcombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(semcombo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(sublist, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,21 +213,21 @@ public class AddSubject extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yeartxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(yearcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(semcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 2, Short.MAX_VALUE)))
-                .addGap(13, 13, 13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                        .addGap(13, 13, 13))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addComponent(semcombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(subnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)))
+                    .addComponent(subnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -276,8 +270,8 @@ public class AddSubject extends javax.swing.JFrame {
     private void AddSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSubjectActionPerformed
         // TODO add your handling code here:
         //get form details
-        String year = yeartxt.getText();
-        String semester = (String)semcombo.getSelectedItem( );
+        String year = (String)yearcombo.getSelectedItem( );
+        String semester = (String)semcombo1.getSelectedItem( );
         String name = subnametxt.getText();
         String code = subcodetxt.getText();
         String lec = lechourtxt.getText();
@@ -304,7 +298,6 @@ public class AddSubject extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(this, "Subject Added to the System!");
             
-            yeartxt.setText("");
             subnametxt.setText("");
             subcodetxt.setText("");
             lechourtxt.setText("");
@@ -312,7 +305,7 @@ public class AddSubject extends javax.swing.JFrame {
             labhourtxt.setText("");
             evalhourtxt.setText("");
                         
-            yeartxt.requestFocus();
+            yearcombo.requestFocus();
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddSubject.class.getName()).log(Level.SEVERE, null, ex);
@@ -321,10 +314,6 @@ public class AddSubject extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_AddSubjectActionPerformed
-
-    private void yeartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yeartxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_yeartxtActionPerformed
 
     private void subnametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subnametxtActionPerformed
         // TODO add your handling code here:
@@ -404,11 +393,11 @@ public class AddSubject extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField labhourtxt;
     private javax.swing.JTextField lechourtxt;
-    private javax.swing.JComboBox<String> semcombo;
+    private javax.swing.JComboBox<String> semcombo1;
     private javax.swing.JTextField subcodetxt;
     private javax.swing.JButton sublist;
     private javax.swing.JTextField subnametxt;
     private javax.swing.JTextField tutehourtxt;
-    private javax.swing.JTextField yeartxt;
+    private javax.swing.JComboBox<String> yearcombo;
     // End of variables declaration//GEN-END:variables
 }

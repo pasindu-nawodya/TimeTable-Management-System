@@ -112,7 +112,7 @@ public class Lecturerlist extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    Connection con;
+        Connection con;
         PreparedStatement show;
         
         private void table_update(){

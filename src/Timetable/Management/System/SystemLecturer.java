@@ -83,7 +83,7 @@ public class SystemLecturer extends javax.swing.JFrame {
 
         RemoveLecturer.setBackground(new java.awt.Color(204, 204, 204));
         RemoveLecturer.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        RemoveLecturer.setText("Remove Lecturer Details");
+        RemoveLecturer.setText("Lecturer List");
         RemoveLecturer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RemoveLecturerActionPerformed(evt);
@@ -152,7 +152,7 @@ public class SystemLecturer extends javax.swing.JFrame {
 
     private void RemoveLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveLecturerActionPerformed
         // TODO add your handling code here:
-        new ViewDeleteRemoveLecturer().setVisible(true);
+        new Lecturerlist().setVisible(true);
         dispose();
     }//GEN-LAST:event_RemoveLecturerActionPerformed
 
