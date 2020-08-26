@@ -62,6 +62,7 @@ public class EditLecturer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Time Table Management System");
+        setSize(new java.awt.Dimension(1400, 700));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel6.setText("Center               :");
@@ -170,9 +171,9 @@ public class EditLecturer extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1400, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(287, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,6 +256,7 @@ public class EditLecturer extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     Connection con;
     PreparedStatement show;
@@ -317,6 +319,7 @@ public class EditLecturer extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Lecturer "+ selectedIDs +" updated successfully!");
             
             new Lecturerlist().setVisible(true);
+            dispose();
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddLecturer.class.getName()).log(Level.SEVERE, null, ex);
@@ -349,7 +352,7 @@ public class EditLecturer extends javax.swing.JFrame {
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost/timetablems","root","1234");
 
-                show = con.prepareStatement("select * from lecturer where lecid = "+selectedID);
+                show = con.prepareStatement("select * from lecturer where lecid = '"+selectedID+"'");
                 ResultSet rs = show.executeQuery();
                                
                 while (rs.next())

@@ -265,6 +265,7 @@ public class EditSubject extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     Connection con;
     PreparedStatement show;
@@ -331,6 +332,7 @@ public class EditSubject extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Subject "+ selectedIDs +" updated successfully!");
             
             new subjectlist().setVisible(true);
+            dispose();
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddLecturer.class.getName()).log(Level.SEVERE, null, ex);
@@ -341,7 +343,7 @@ public class EditSubject extends javax.swing.JFrame {
 
     private void BacSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BacSubjectActionPerformed
         // TODO add your handling code here:
-        new SystemLecturer().setVisible(true);
+        new SystemSubject().setVisible(true);
         dispose();
     }//GEN-LAST:event_BacSubjectActionPerformed
 
@@ -359,7 +361,7 @@ public class EditSubject extends javax.swing.JFrame {
 
     private void submitIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitIDActionPerformed
         // TODO add your handling code here:
-        String selectedID = (String)idcombo.getSelectedItem();
+            String selectedID = (String)idcombo.getSelectedItem();
                
              try {
             

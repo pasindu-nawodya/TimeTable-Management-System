@@ -134,8 +134,6 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(51, 51, 255));
         jLabel3.setText("Select Lecture ID :");
 
-        selectidcombo.setSelectedIndex(-1);
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/LecDetails.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
 
@@ -280,6 +278,7 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     Connection con;
@@ -338,7 +337,7 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/timetablems","root","1234");
             
-            delete = con.prepareStatement("delete from lecturer where lecid="+selectedIDs);
+            delete = con.prepareStatement("delete from lecturer where lecid= '"+selectedIDs+"'");
             delete.executeUpdate();
             
             JOptionPane.showMessageDialog(this, "Lecturer "+ selectedIDs +" deleted successfully!");
@@ -381,7 +380,7 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost/timetablems","root","1234");
 
-                show = con.prepareStatement("select * from lecturer where lecid = "+selectedID);
+                show = con.prepareStatement("select * from lecturer where lecid = '"+selectedID+"'");
                 ResultSet rs = show.executeQuery();
                                
                 while (rs.next())

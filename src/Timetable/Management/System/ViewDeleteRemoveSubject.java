@@ -60,7 +60,7 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
         submitID = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("T");
+        setTitle("Time Table Management System");
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel8.setText("Lab Hours         :");
@@ -274,6 +274,7 @@ public class ViewDeleteRemoveSubject extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     Connection con;

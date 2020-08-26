@@ -47,6 +47,7 @@ public class subjectlist extends javax.swing.JFrame {
         closebtn = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Time Table Management System");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/subjectlist.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -115,6 +116,7 @@ public class subjectlist extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void closebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closebtnActionPerformed

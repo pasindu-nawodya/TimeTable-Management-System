@@ -40,7 +40,6 @@ public class SystemSubject extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1400, 750));
         setMinimumSize(new java.awt.Dimension(1400, 750));
         setName("SystemSubject"); // NOI18N
-        setResizable(false);
         setSize(new java.awt.Dimension(1400, 750));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -139,6 +138,7 @@ public class SystemSubject extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSubjectActionPerformed

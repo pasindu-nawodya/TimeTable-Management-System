@@ -205,6 +205,7 @@ public class SystemDashboard extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SystemLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemLecturerActionPerformed
@@ -249,7 +250,7 @@ public class SystemDashboard extends javax.swing.JFrame {
 
     private void SystemSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemSessionActionPerformed
         // TODO add your handling code here:
-        
+        new SystemSession().setVisible(true);
     }//GEN-LAST:event_SystemSessionActionPerformed
 
     private void SystemSessionOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemSessionOtherActionPerformed
