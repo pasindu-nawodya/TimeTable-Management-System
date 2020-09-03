@@ -220,7 +220,7 @@ public class SystemDashboard extends javax.swing.JFrame {
 
     private void SystemTagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemTagActionPerformed
         // TODO add your handling code here:
-        
+         new SystemTags().setVisible(true);
     }//GEN-LAST:event_SystemTagActionPerformed
 
     private void SystemLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemLocationActionPerformed
@@ -245,6 +245,7 @@ public class SystemDashboard extends javax.swing.JFrame {
 
     private void SystemStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemStudentActionPerformed
         // TODO add your handling code here:
+        new SystemStudent().setVisible(true);
         
     }//GEN-LAST:event_SystemStudentActionPerformed
 
