@@ -39,6 +39,7 @@ public class ViewGroup extends javax.swing.JFrame {
     public ViewGroup() throws SQLException {
        initComponents();
         setLocationRelativeTo(null);
+        // con = new DBconnection().getDB();
         try{
         showDetails();
         selectRow();
@@ -64,8 +65,8 @@ public class ViewGroup extends javax.swing.JFrame {
        
         
        Statement stmt = null;
-       con = new DBconnection().getDB();
-       stmt = con.createStatement();
+       //con = new DBconnection().getDB();
+       stmt = new DBconnection().getDB().createStatement();
        String sql = "SELECT id,GroupNumber from GroupNumbers ORDER BY GroupNumber";
        
        ResultSet result = stmt.executeQuery(sql);

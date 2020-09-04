@@ -21,21 +21,21 @@ import javax.swing.JOptionPane;
  */
 public class GenerateSubGroup extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GenerateSubGroup
-     */
+    Connection con;
+
     public GenerateSubGroup() throws SQLException {
         initComponents();
         showGroupId();
         subGroupNumber();
          setLocationRelativeTo(null);
+         // con = new DBconnection().getDB();
     }
 
    public void showGroupId() throws SQLException{
     
     Statement stmt = null;
-       Connection con = new DBconnection().getDB();
-       stmt = con.createStatement();
+       //Connection con = new DBconnection().getDB();
+       stmt = new DBconnection().getDB().createStatement();
        String sql = "SELECT groupid from GroupIDs";
        
        ResultSet result = stmt.executeQuery(sql);
@@ -54,8 +54,8 @@ public class GenerateSubGroup extends javax.swing.JFrame {
      public void subGroupNumber() throws SQLException{
     
     Statement stmt = null;
-       Connection con = new DBconnection().getDB();
-       stmt = con.createStatement();
+      // Connection con = new DBconnection().getDB();
+       stmt = new DBconnection().getDB().createStatement();
        String sql = "SELECT SubGroupNumber from SubGroupNumbers ";
        
        ResultSet result = stmt.executeQuery(sql);
@@ -73,8 +73,8 @@ public class GenerateSubGroup extends javax.swing.JFrame {
      
       public void createTable() throws SQLException{
      
-      Connection con = new DBconnection().getDB();
-          Statement stmt = con.createStatement();
+      //Connection con = new DBconnection().getDB();
+          Statement stmt = new DBconnection().getDB().createStatement();
           String sql = "CREATE TABLE IF NOT EXISTS SubGroupIDs  " +
                    "(id VARCHAR(225) not NULL, " +
                    " subgroupid VARCHAR(20) UNIQUE, " + 
@@ -232,9 +232,9 @@ public class GenerateSubGroup extends javax.swing.JFrame {
         String uniqueID = UUID.randomUUID().toString();
           
            
-          Connection con = new DBconnection().getDB();
+         // Connection con = new DBconnection().getDB();
            
-         Statement stmt = con.createStatement();
+         Statement stmt = new DBconnection().getDB().createStatement();
            
              String sql = "INSERT INTO SubGroupIDs "
                                 +" VALUES ("
@@ -258,6 +258,7 @@ public class GenerateSubGroup extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             new ViewGeneratedSubGroups().setVisible(true);
+            this.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(AddTags.class.getName()).log(Level.SEVERE, null, ex);
         }

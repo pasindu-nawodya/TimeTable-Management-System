@@ -24,15 +24,16 @@ public class AddSubGroup extends javax.swing.JFrame {
     /**
      * Creates new form AddSubGroup
      */
-    public AddSubGroup() {
+    public AddSubGroup() throws SQLException {
         initComponents();
          setLocationRelativeTo(null);
+         con = new DBconnection().getDB();
     }
 
     
      public void createDBTable() throws SQLException, ClassNotFoundException{
         
-          con = new DBconnection().getDB();
+          //con = new DBconnection().getDB();
           Statement stmt = con.createStatement();
           String sql = "CREATE TABLE IF NOT EXISTS SubGroupNumbers  " +
                    "(id VARCHAR(225) not NULL, " +
@@ -197,7 +198,7 @@ public class AddSubGroup extends javax.swing.JFrame {
            String uniqueID = UUID.randomUUID().toString();
            
            
-           con = new DBconnection().getDB();
+           //con = new DBconnection().getDB();
            
          Statement stmt = con.createStatement();
            
@@ -265,7 +266,11 @@ public class AddSubGroup extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddSubGroup().setVisible(true);
+                try {
+                    new AddSubGroup().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AddSubGroup.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

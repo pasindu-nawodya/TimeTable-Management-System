@@ -39,6 +39,7 @@ public class ViewSubgroups extends javax.swing.JFrame {
     public ViewSubgroups() throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
+         //con = new DBconnection().getDB();
         try{
         showDetails();
         selectRow();
@@ -66,8 +67,8 @@ public class ViewSubgroups extends javax.swing.JFrame {
        
         
        Statement stmt = null;
-       con = new DBconnection().getDB();
-       stmt = con.createStatement();
+      // con = new DBconnection().getDB();
+       stmt = new DBconnection().getDB().createStatement();
        String sql = "SELECT SubGroupNumber from SubGroupNumbers ORDER BY SubGroupNumber";
        
        ResultSet result = stmt.executeQuery(sql);
@@ -229,9 +230,13 @@ public class ViewSubgroups extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        // TODO add your handling code here:
-        new AddSubGroup().setVisible(true);
-        this.setVisible(false);
+        try {
+            // TODO add your handling code here:
+            new AddSubGroup().setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewSubgroups.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_addActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed

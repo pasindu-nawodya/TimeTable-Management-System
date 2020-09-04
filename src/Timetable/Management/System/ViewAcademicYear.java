@@ -49,9 +49,11 @@ public class ViewAcademicYear extends javax.swing.JFrame {
     public ViewAcademicYear() throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
+         con = new DBconnection().getDB();
         try{
         showDetails();
         selectRow();
+       
         
         }catch(Exception e){
           JOptionPane.showMessageDialog(this, "No records found.Please add records.","Warning",JOptionPane.WARNING_MESSAGE);
@@ -83,7 +85,7 @@ public class ViewAcademicYear extends javax.swing.JFrame {
        Statement stmt = null;
        con = new DBconnection().getDB();
        stmt = con.createStatement();
-       String sql = "SELECT id,Year,Semester,Name from AcademicYear ORDER BY Year";
+       String sql = "SELECT id,Year,Semester,Name from AcademicYear ORDER BY Year,Semester";
        
        ResultSet result = stmt.executeQuery(sql);
         table = (DefaultTableModel) jTable1.getModel(); 
@@ -265,9 +267,14 @@ public class ViewAcademicYear extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        // TODO add your handling code here:
-        new AddAcademicYear().setVisible(true);
-        this.setVisible(false);
+     try {
+         // TODO add your handling code here:
+         new AddAcademicYear().setVisible(true);
+         this.setVisible(false);
+     } catch (SQLException ex) {
+         Logger.getLogger(ViewAcademicYear.class.getName()).log(Level.SEVERE, null, ex);
+     }
+        
     }//GEN-LAST:event_addActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
@@ -296,7 +303,7 @@ public class ViewAcademicYear extends javax.swing.JFrame {
         model.removeRow(modelIndex);
         
         
-        stmt = new DBconnection().getDB().createStatement();
+        stmt = con.createStatement();
                 
                 String sql = "DELETE FROM AcademicYear" +
                    " WHERE Name = '"+editable+"'";

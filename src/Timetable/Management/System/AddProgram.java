@@ -24,15 +24,16 @@ public class AddProgram extends javax.swing.JFrame {
     /**
      * Creates new form AddProgram
      */
-    public AddProgram() {
+    public AddProgram() throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
+        con = new DBconnection().getDB();
     }
 
     
     public void createDBTable() throws SQLException, ClassNotFoundException{
         
-          con = new DBconnection().getDB();
+          //con = new DBconnection().getDB();
           Statement stmt = con.createStatement();
           String sql = "CREATE TABLE IF NOT EXISTS Program  " +
                    "(id VARCHAR(225) not NULL, " +
@@ -187,7 +188,7 @@ public class AddProgram extends javax.swing.JFrame {
         
         }else{
             try {
-                Statement stmt = new DBconnection().getDB().createStatement();
+                Statement stmt = con.createStatement();
                 String sql = "INSERT INTO Program "
                                 +" VALUES ("
                                 +"'"+uniqueID+"' ,"
@@ -257,7 +258,11 @@ public class AddProgram extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddProgram().setVisible(true);
+                try {
+                    new AddProgram().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AddProgram.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

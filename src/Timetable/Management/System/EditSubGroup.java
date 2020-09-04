@@ -6,6 +6,7 @@
 package Timetable.Management.System;
 
 import DB.DBconnection;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,6 +23,8 @@ public class EditSubGroup extends javax.swing.JFrame {
     int value;
     Statement stmt = null;
     String id;
+    Connection con;
+
     /**
      * Creates new form EditSubGroup
      */
@@ -30,6 +33,8 @@ public class EditSubGroup extends javax.swing.JFrame {
         initComponents();
         showDetails();
          setLocationRelativeTo(null);
+          //con = new DBconnection().getDB();
+
     }
 
     private EditSubGroup() {

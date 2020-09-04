@@ -6,6 +6,7 @@
 package Timetable.Management.System;
 
 import DB.DBconnection;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,6 +23,8 @@ public class EditGroup extends javax.swing.JFrame {
     int value;
     Statement stmt = null;
     String id;
+    Connection con;
+
     /**
      * Creates new form EditGroup
      */
@@ -29,6 +32,8 @@ public class EditGroup extends javax.swing.JFrame {
         this.value = value;
         initComponents();
         showDetails();
+        // con = new DBconnection().getDB();
+
     }
 
     private EditGroup() {
@@ -40,7 +45,8 @@ public class EditGroup extends javax.swing.JFrame {
     
        
       
-       stmt = new DBconnection().getDB().createStatement();
+       stmt = new DBconnection().getDB()
+.createStatement();
        String sql = "SELECT id,GroupNumber from GroupNumbers WHERE  GroupNumber = "+value;
       
        ResultSet rs = stmt.executeQuery(sql);
@@ -192,7 +198,8 @@ public class EditGroup extends javax.swing.JFrame {
 
                 int number = Integer.parseInt(input);
 
-                stmt = new DBconnection().getDB().createStatement();
+                stmt = new DBconnection().getDB()
+.createStatement();
                 
                 String sql = "UPDATE GroupNumbers " +
                    "SET GroupNumber = "+number+" WHERE GroupNumber = "+value;

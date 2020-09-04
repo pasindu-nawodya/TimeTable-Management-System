@@ -6,6 +6,7 @@
 package Timetable.Management.System;
 
 import DB.DBconnection;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,6 +23,8 @@ public class EditTags extends javax.swing.JFrame {
     String value;
     Statement stmt = null;
     String id;
+    Connection con;
+
     /**
      * Creates new form EditTags
      */
@@ -30,6 +33,7 @@ public class EditTags extends javax.swing.JFrame {
         initComponents();
         showDetails();
          setLocationRelativeTo(null);
+          //con = new DBconnection().getDB();
     }
 
     private EditTags() {
@@ -40,7 +44,8 @@ public class EditTags extends javax.swing.JFrame {
     
        
       
-       stmt = new DBconnection().getDB().createStatement();
+       stmt = new DBconnection().getDB()
+.createStatement();
        String sql = "SELECT id,Tag from Tags WHERE  Tag = '"+value+"'";
       
        ResultSet rs = stmt.executeQuery(sql);
@@ -187,7 +192,8 @@ try{
             JOptionPane.showMessageDialog(this, "Invalid Input","Error",JOptionPane.ERROR_MESSAGE);
         }else{
             
-            stmt = new DBconnection().getDB().createStatement();
+            stmt = new DBconnection().getDB()
+.createStatement();
                 
                 String sql = "UPDATE Tags " +
                    "SET Tag = '"+input+"' WHERE Tag = '"+value+"'";
