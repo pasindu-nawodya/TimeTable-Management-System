@@ -225,7 +225,7 @@ public class SystemDashboard extends javax.swing.JFrame {
 
     private void SystemLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemLocationActionPerformed
         // TODO add your handling code here:
-        
+        new LocationDashboard().setVisible(true);
     }//GEN-LAST:event_SystemLocationActionPerformed
 
     private void SystemWorkDaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemWorkDaysActionPerformed
