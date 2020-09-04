@@ -133,7 +133,11 @@ public class SystemTags extends javax.swing.JFrame {
     }//GEN-LAST:event_viewTagActionPerformed
 
     private void addTagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTagActionPerformed
-        new AddTags().setVisible(true);
+        try {
+            new AddTags().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(SystemTags.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_addTagActionPerformed
 
     private void addTagMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addTagMouseEntered
