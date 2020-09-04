@@ -230,6 +230,7 @@ public class SystemDashboard extends javax.swing.JFrame {
 
     private void SystemWorkDaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemWorkDaysActionPerformed
         // TODO add your handling code here:
+        new SystemWorkingDays().setVisible(true);
         
     }//GEN-LAST:event_SystemWorkDaysActionPerformed
 
