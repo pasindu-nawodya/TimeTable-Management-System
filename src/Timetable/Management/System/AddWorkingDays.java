@@ -56,12 +56,12 @@ public class AddWorkingDays extends javax.swing.JFrame {
         p2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         workday = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
+        monday = new javax.swing.JCheckBox();
+        tuesday = new javax.swing.JCheckBox();
+        wednesday = new javax.swing.JCheckBox();
+        thursday = new javax.swing.JCheckBox();
+        friday = new javax.swing.JCheckBox();
+        saturday = new javax.swing.JCheckBox();
         p2next = new javax.swing.JButton();
         p2back = new javax.swing.JButton();
         p3 = new javax.swing.JPanel();
@@ -69,13 +69,13 @@ public class AddWorkingDays extends javax.swing.JFrame {
         worktime = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jSpinner3 = new javax.swing.JSpinner();
+        worktime2 = new javax.swing.JSpinner();
         p3next = new javax.swing.JButton();
         p3back = new javax.swing.JButton();
         p4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         timeslot = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        timeslot2 = new javax.swing.JRadioButton();
         Submit = new javax.swing.JButton();
         p4back = new javax.swing.JButton();
 
@@ -183,6 +183,8 @@ public class AddWorkingDays extends javax.swing.JFrame {
         p1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         p1.setPreferredSize(new java.awt.Dimension(1090, 494));
 
+        Noworkday.setModel(new javax.swing.SpinnerNumberModel(0, 0, 7, 1));
+
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setText("Number of Working Days Per Week");
 
@@ -252,43 +254,43 @@ public class AddWorkingDays extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jCheckBox2.setText("Monday");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        monday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        monday.setText("Monday");
+        monday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                mondayActionPerformed(evt);
             }
         });
 
-        jCheckBox3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jCheckBox3.setText("Tuesday");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        tuesday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        tuesday.setText("Tuesday");
+        tuesday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                tuesdayActionPerformed(evt);
             }
         });
 
-        jCheckBox4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jCheckBox4.setText("Wednesday");
+        wednesday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        wednesday.setText("Wednesday");
 
-        jCheckBox5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jCheckBox5.setText("Thursday");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        thursday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        thursday.setText("Thursday");
+        thursday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                thursdayActionPerformed(evt);
             }
         });
 
-        jCheckBox6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jCheckBox6.setText("Friday");
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+        friday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        friday.setText("Friday");
+        friday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
+                fridayActionPerformed(evt);
             }
         });
 
-        jCheckBox7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jCheckBox7.setText("Saturday");
+        saturday.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        saturday.setText("Saturday");
 
         p2next.setText("Next");
         p2next.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -332,13 +334,13 @@ public class AddWorkingDays extends javax.swing.JFrame {
                     .addGroup(p2Layout.createSequentialGroup()
                         .addGap(307, 307, 307)
                         .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox2)
+                            .addComponent(monday)
                             .addComponent(workday)
-                            .addComponent(jCheckBox4)
-                            .addComponent(jCheckBox5)
-                            .addComponent(jCheckBox6)
-                            .addComponent(jCheckBox7)
-                            .addComponent(jCheckBox3))))
+                            .addComponent(wednesday)
+                            .addComponent(thursday)
+                            .addComponent(friday)
+                            .addComponent(saturday)
+                            .addComponent(tuesday))))
                 .addContainerGap(684, Short.MAX_VALUE))
         );
         p2Layout.setVerticalGroup(
@@ -349,17 +351,17 @@ public class AddWorkingDays extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(workday)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox2)
+                .addComponent(monday)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox3)
+                .addComponent(tuesday)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox4)
+                .addComponent(wednesday)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox5)
+                .addComponent(thursday)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox6)
+                .addComponent(friday)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox7)
+                .addComponent(saturday)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(p2next, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -372,11 +374,15 @@ public class AddWorkingDays extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setText("Working Time Per Day");
 
+        worktime.setModel(new javax.swing.SpinnerNumberModel(0, 0, 24, 1));
+
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setText("Hours");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel6.setText("Minutes");
+
+        worktime2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
 
         p3next.setText("Next");
         p3next.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -414,7 +420,7 @@ public class AddWorkingDays extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addComponent(jLabel6)
                         .addGap(23, 23, 23)
-                        .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(worktime2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(483, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -433,7 +439,7 @@ public class AddWorkingDays extends javax.swing.JFrame {
                     .addComponent(worktime, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
-                    .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(worktime2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(p3next, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -454,8 +460,13 @@ public class AddWorkingDays extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jRadioButton2.setText("Thirty minutes time slots ");
+        timeslot2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        timeslot2.setText("Thirty minutes time slots ");
+        timeslot2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                timeslot2ActionPerformed(evt);
+            }
+        });
 
         Submit.setText("Submit");
         Submit.addActionListener(new java.awt.event.ActionListener() {
@@ -488,7 +499,7 @@ public class AddWorkingDays extends javax.swing.JFrame {
                     .addGroup(p4Layout.createSequentialGroup()
                         .addGap(297, 297, 297)
                         .addGroup(p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
+                            .addComponent(timeslot2)
                             .addComponent(timeslot))))
                 .addContainerGap(604, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p4Layout.createSequentialGroup()
@@ -506,7 +517,7 @@ public class AddWorkingDays extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(timeslot)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(timeslot2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                 .addGroup(p4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -625,23 +636,84 @@ public class AddWorkingDays extends javax.swing.JFrame {
 
     private void timeslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeslotActionPerformed
         // TODO add your handling code here:
+        if(timeslot.isSelected()){
+            timeslot2.setSelected(false);
+        }
     }//GEN-LAST:event_timeslotActionPerformed
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
         // TODO add your handling code here:
+        //--NO OF DAYS--
         Integer myInt1 = (Integer)Noworkday.getValue();
         String Noworkday = myInt1.toString();
         
+        //--WORK DAYS--
+        String workdays = "";
         
-        String myStr1 = (String)workday.getText();
-        String workday = myStr1.toString();
+        if(workday.isSelected()){
+            String myStr1 = (String)workday.getText();
+            String workday = myStr1.toString();
+            workdays = workdays+","+ workday;
+        }
         
+        if(monday.isSelected()){
+            String myStr2 = (String)monday.getText();
+            String monday = myStr2.toString();
+            workdays = workdays+","+ monday;
+        }
+        
+        if(tuesday.isSelected()){
+            String myStr3 = (String)tuesday.getText();
+            String tuesday = myStr3.toString();
+            workdays = workdays+","+ tuesday;
+        }
+        
+        if(wednesday.isSelected()){
+            String myStr4 = (String)wednesday.getText();
+            String wednesday = myStr4.toString();
+            workdays = workdays+","+ wednesday;
+        }
+        
+        if(thursday.isSelected()){
+            String myStr5 = (String)thursday.getText();
+            String thursday = myStr5.toString();
+            workdays = workdays+","+ thursday;
+        }
+        
+        if(friday.isSelected()){
+            String myStr6 = (String)friday.getText();
+            String friday = myStr6.toString();
+            workdays = workdays+","+ friday;
+        }
+        
+        if(saturday.isSelected()){
+            String myStr7 = (String)saturday.getText();
+            String saturday = myStr7.toString();
+            workdays = workdays+","+ saturday;
+        }
+        
+        //--WORK TIME--
+        
+        String worktime1;
         Integer myInt2 = (Integer)worktime.getValue();   
-        String worktime = myInt2.toString()
-                ;
-        String myStr2 = (String)timeslot.getText();
-        String timeslot = myStr2.toString();
-      
+        String worktime = myInt2.toString();
+        
+        Integer myInt3 = (Integer)worktime2.getValue();   
+        String worktime2 = myInt3.toString();
+        
+        worktime1 = worktime+","+worktime2;        
+        
+        //---TIME SLOT--
+        String timeslot1;
+        if(timeslot.isSelected()) {   
+                String myStr8 = (String)timeslot.getText();
+                timeslot1 = myStr8.toString();
+                
+        }else{
+            String myStr9 = (String)timeslot2.getText();
+                timeslot1 = myStr9.toString();
+        }
+    
         try {
             
             Class.forName("com.mysql.jdbc.Driver");
@@ -649,9 +721,9 @@ public class AddWorkingDays extends javax.swing.JFrame {
             
             insert = con.prepareStatement("insert into workdays(Noworkday,workday,worktime,timeslot) values(?,?,?,?)");
             insert.setString(1, Noworkday);
-            insert.setString(2, workday);
-            insert.setString(3, worktime);
-            insert.setString(4, timeslot);
+            insert.setString(2, workdays);
+            insert.setString(3, worktime1);
+            insert.setString(4, timeslot1);
             
             insert.executeUpdate();
             
@@ -698,17 +770,17 @@ public class AddWorkingDays extends javax.swing.JFrame {
             } // TODO add your handling code here:
     }//GEN-LAST:event_MouseClicked
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+    private void tuesdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tuesdayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+    }//GEN-LAST:event_tuesdayActionPerformed
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+    private void thursdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thursdayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_thursdayActionPerformed
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+    private void fridayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fridayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
+    }//GEN-LAST:event_fridayActionPerformed
 
     private void p1next(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p1next
         // TODO add your handling code here:
@@ -788,9 +860,16 @@ public class AddWorkingDays extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_p4backActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void mondayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mondayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_mondayActionPerformed
+
+    private void timeslot2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeslot2ActionPerformed
+        // TODO add your handling code here:
+        if(timeslot2.isSelected()){
+            timeslot.setSelected(false);
+        }
+    }//GEN-LAST:event_timeslot2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -831,13 +910,8 @@ public class AddWorkingDays extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner Noworkday;
     private javax.swing.JButton Submit;
+    private javax.swing.JCheckBox friday;
     private javax.swing.JButton jButton6;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -848,8 +922,7 @@ public class AddWorkingDays extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JCheckBox monday;
     private javax.swing.JPanel p1;
     private javax.swing.JButton p1next;
     private javax.swing.JPanel p2;
@@ -864,8 +937,14 @@ public class AddWorkingDays extends javax.swing.JFrame {
     private javax.swing.JButton pp2;
     private javax.swing.JButton pp3;
     private javax.swing.JButton pp4;
+    private javax.swing.JCheckBox saturday;
+    private javax.swing.JCheckBox thursday;
     private javax.swing.JRadioButton timeslot;
+    private javax.swing.JRadioButton timeslot2;
+    private javax.swing.JCheckBox tuesday;
+    private javax.swing.JCheckBox wednesday;
     private javax.swing.JCheckBox workday;
     private javax.swing.JSpinner worktime;
+    private javax.swing.JSpinner worktime2;
     // End of variables declaration//GEN-END:variables
 }

@@ -213,6 +213,7 @@ public class EditBuilding extends javax.swing.JFrame {
     private void SystemBuildingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemBuildingActionPerformed
         // TODO add your handling code here:
         new SystemBuilding().setVisible(true);
+        dispose();
     }//GEN-LAST:event_SystemBuildingActionPerformed
 
     private void EditBuildingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditBuildingActionPerformed

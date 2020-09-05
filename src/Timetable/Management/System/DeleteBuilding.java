@@ -141,6 +141,7 @@ public class DeleteBuilding extends javax.swing.JFrame {
     private void SystemBuildingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemBuildingActionPerformed
         // TODO add your handling code here:
         new SystemBuilding().setVisible(true);
+        dispose();
     }//GEN-LAST:event_SystemBuildingActionPerformed
 
     private void DeleteBuildingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBuildingActionPerformed
