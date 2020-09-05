@@ -258,6 +258,7 @@ public class GenerateSubGroup extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             new ViewGeneratedSubGroups().setVisible(true);
+            this.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(AddTags.class.getName()).log(Level.SEVERE, null, ex);
         }

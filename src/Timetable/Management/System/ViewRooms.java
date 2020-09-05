@@ -123,6 +123,7 @@ public class ViewRooms extends javax.swing.JFrame {
     private void SystemRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemRoomActionPerformed
         // TODO add your handling code here:
         new SystemRoom().setVisible(true);
+        dispose();
     }//GEN-LAST:event_SystemRoomActionPerformed
 
     /**

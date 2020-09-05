@@ -134,6 +134,12 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(51, 51, 255));
         jLabel3.setText("Select Lecture ID :");
 
+        selectidcombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectidcomboActionPerformed(evt);
+            }
+        });
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/LecDetails.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
 
@@ -400,6 +406,10 @@ public class ViewDeleteRemoveLecturer extends javax.swing.JFrame {
                 Logger.getLogger(subjectlist.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_submitActionPerformed
+
+    private void selectidcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectidcomboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectidcomboActionPerformed
 
     /**
      * @param args the command line arguments

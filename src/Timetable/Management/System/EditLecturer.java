@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Timetable.Management.System;
+import static Timetable.Management.System.AddRoom.DB_URL;
+import static Timetable.Management.System.DeleteBuilding.sList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
@@ -25,8 +27,9 @@ public class EditLecturer extends javax.swing.JFrame {
     /**
      * Creates new form EditLecturer
      */
-    public EditLecturer() {
+    public EditLecturer() throws SQLException {
         initComponents();
+        currentBuildings();
         getLecidCombo();
     }
 
@@ -74,7 +77,6 @@ public class EditLecturer extends javax.swing.JFrame {
         jLabel7.setText("Department      :");
 
         building.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        building.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Main building", "New building", "D-block" }));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel8.setText("Level                 :");
@@ -261,6 +263,31 @@ public class EditLecturer extends javax.swing.JFrame {
     Connection con;
     PreparedStatement show;
     
+    private Connection DoConnect() throws SQLException{
+        Connection conn=null;
+        try{
+            Class.forName("com.mysql.jdbc.Driver");   
+            conn = DriverManager.getConnection(DB_URL, "root", "1234");
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddRoom.class.getName()).log(Level.SEVERE, null, ex);
+        }          
+        return conn;
+    }
+    
+    private void currentBuildings() throws SQLException{
+        Connection conn = DoConnect();    
+        try {            
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM buildings");              
+            while(rs.next()){     
+                sList.add(rs.getString(1));
+                building.addItem(String.format("%s | (%s)",rs.getString(2),rs.getString(3)));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DeleteBuilding.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+    }
+    
     //get id list to combo
     private void getLecidCombo(){
         try { 
@@ -407,7 +434,11 @@ public class EditLecturer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditLecturer().setVisible(true);
+                try {
+                    new EditLecturer().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(EditLecturer.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

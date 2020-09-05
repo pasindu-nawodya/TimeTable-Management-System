@@ -5,6 +5,7 @@
  */
 package Timetable.Management.System;
 
+import static Timetable.Management.System.DeleteBuilding.sList;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +25,7 @@ public class AddRoom extends javax.swing.JFrame {
      */
     public AddRoom() {
         initComponents();
+        currentBuildings();
     }
 
     /**
@@ -92,7 +94,6 @@ public class AddRoom extends javax.swing.JFrame {
         jLabel5.setText("Select Building : ");
 
         selectbuilding.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        selectbuilding.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BFCOM01", "BFCOM02", "BFCOM03", "BFCOM04" }));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/add_room.jpg"))); // NOI18N
 
@@ -205,6 +206,20 @@ public class AddRoom extends javax.swing.JFrame {
         return conn;
     }
     
+    private void currentBuildings(){
+        Connection conn = DoConnect();    
+        try {            
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM buildings");              
+            while(rs.next()){     
+                sList.add(rs.getString(1));
+                selectbuilding.addItem(String.format("%s | (%s)",rs.getString(2),rs.getString(3)));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DeleteBuilding.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+    }
+    
     private void Raz(){
         roomcode.setText("");
         roomname.setText("");
@@ -232,6 +247,7 @@ public class AddRoom extends javax.swing.JFrame {
     private void SystemRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemRoomActionPerformed
         // TODO add your handling code here:
         new SystemRoom().setVisible(true);
+        dispose();
     }//GEN-LAST:event_SystemRoomActionPerformed
 
     /**

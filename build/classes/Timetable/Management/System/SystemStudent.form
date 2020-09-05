@@ -53,7 +53,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="355" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="704" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="year" min="-2" pref="264" max="-2" attributes="0"/>
                               <Component id="sgroup" min="-2" pref="264" max="-2" attributes="0"/>
@@ -69,12 +73,8 @@
                               <Component id="sgid" min="-2" pref="262" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="355" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" pref="704" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace pref="608" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -84,9 +84,9 @@
                   <Component id="jLabel1" min="-2" pref="343" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" pref="77" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                           <Component id="program" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
                           <Component id="year" min="-2" pref="92" max="-2" attributes="0"/>
                       </Group>
@@ -98,7 +98,7 @@
                       <Component id="gid" alignment="3" min="-2" pref="92" max="-2" attributes="0"/>
                       <Component id="sgid" alignment="3" min="-2" pref="92" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
