@@ -127,6 +127,11 @@ public class AddLecturer extends javax.swing.JFrame {
 
         levelcombo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         levelcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1-Professor", "2-Assistant Professor", "3-Senior Lecturer(HG)", "4-Senior Lecturer", "5-Lecturer", "6-Assistant Lecturer", "7-Instructors" }));
+        levelcombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                levelcomboActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel9.setText("Rank                 :");
@@ -297,16 +302,19 @@ public class AddLecturer extends javax.swing.JFrame {
             insert.setString(7, level);
             insert.setString(8, rank);
             
-            insert.executeUpdate();
+            if(name.isEmpty() || id.isEmpty() || department.isEmpty() || rank.isEmpty()){
+                JOptionPane.showMessageDialog(this, "Some Required Fields are Empty!");
+            }else{
+                insert.executeUpdate();            
+                JOptionPane.showMessageDialog(this, "Lecturer Added to the System!");
+                lecnametxt.setText("");
+                lecidtxt.setText("");
+                departmenttxt.setText("");
+                ranktxt.setText("");
+                lecnametxt.requestFocus();
+            }
             
-            JOptionPane.showMessageDialog(this, "Lecturer Added to the System!");
             
-            lecnametxt.setText("");
-            lecidtxt.setText("");
-            departmenttxt.setText("");
-            ranktxt.setText("");
-                        
-            lecnametxt.requestFocus();
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddLecturer.class.getName()).log(Level.SEVERE, null, ex);
@@ -327,6 +335,13 @@ public class AddLecturer extends javax.swing.JFrame {
         new Lecturerlist().setVisible(true);
         dispose();
     }//GEN-LAST:event_AddLecturer1ActionPerformed
+
+    private void levelcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelcomboActionPerformed
+        // TODO add your handling code here:
+        String levelLec = (String)levelcombo.getSelectedItem();
+        char rankLec = levelLec.charAt(0);
+        ranktxt.setText(rankLec+"."+lecidtxt.getText());
+    }//GEN-LAST:event_levelcomboActionPerformed
 
     /**
      * @param args the command line arguments
