@@ -366,7 +366,9 @@ public class AddLecturer extends javax.swing.JFrame {
 
     private void levelcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelcomboActionPerformed
         // TODO add your handling code here:
-        
+        String levelLec = (String)levelcombo.getSelectedItem();
+        char rankLec = levelLec.charAt(0);
+        ranktxt.setText(rankLec+"."+lecidtxt.getText());
     }//GEN-LAST:event_levelcomboActionPerformed
 
     /**
