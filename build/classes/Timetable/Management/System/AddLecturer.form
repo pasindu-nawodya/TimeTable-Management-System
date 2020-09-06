@@ -284,11 +284,7 @@
           <Font name="Times New Roman" size="18" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Main building"/>
-            <StringItem index="1" value="New building"/>
-            <StringItem index="2" value="D-block"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <AuxValues>

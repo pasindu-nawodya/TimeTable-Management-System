@@ -5,9 +5,12 @@
  */
 package Timetable.Management.System;
 
+import static Timetable.Management.System.AddRoom.DB_URL;
+import static Timetable.Management.System.DeleteBuilding.sList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,8 +24,9 @@ public class AddLecturer extends javax.swing.JFrame {
     /**
      * Creates new form AddLecturer
      */
-    public AddLecturer() {
+    public AddLecturer() throws SQLException {
         initComponents();
+        currentBuildings();
     }
 
     /**
@@ -120,7 +124,6 @@ public class AddLecturer extends javax.swing.JFrame {
         jLabel7.setText("Department      :");
 
         buildingcombo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        buildingcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Main building", "New building", "D-block" }));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel8.setText("Level                 :");
@@ -263,6 +266,31 @@ public class AddLecturer extends javax.swing.JFrame {
     Connection con;
     PreparedStatement insert;
     
+    private Connection DoConnect() throws SQLException{
+        Connection conn=null;
+        try{
+            Class.forName("com.mysql.jdbc.Driver");   
+            conn = DriverManager.getConnection(DB_URL, "root", "1234");
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddRoom.class.getName()).log(Level.SEVERE, null, ex);
+        }          
+        return conn;
+    }
+    
+    private void currentBuildings() throws SQLException{
+        Connection conn = DoConnect();    
+        try {            
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM buildings");              
+            while(rs.next()){     
+                sList.add(rs.getString(1));
+                buildingcombo.addItem(String.format("%s | (%s)",rs.getString(2),rs.getString(3)));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DeleteBuilding.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+    }
+    
     private void lecnametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lecnametxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lecnametxtActionPerformed
@@ -338,9 +366,7 @@ public class AddLecturer extends javax.swing.JFrame {
 
     private void levelcomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelcomboActionPerformed
         // TODO add your handling code here:
-        String levelLec = (String)levelcombo.getSelectedItem();
-        char rankLec = levelLec.charAt(0);
-        ranktxt.setText(rankLec+"."+lecidtxt.getText());
+        
     }//GEN-LAST:event_levelcomboActionPerformed
 
     /**
@@ -373,7 +399,11 @@ public class AddLecturer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddLecturer().setVisible(true);
+                try {
+                    new AddLecturer().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AddLecturer.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
