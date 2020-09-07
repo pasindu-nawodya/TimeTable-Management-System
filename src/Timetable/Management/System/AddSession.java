@@ -491,24 +491,32 @@ public class AddSession extends javax.swing.JFrame {
             insert.setString(6, durations);
             insert.setString(7, stdQty);
             
-            insert.executeUpdate();
-            
-            //preview session
-            String labelText = lecturersList.toString().replace("]", " ");
-            
-            lecLabel.setText(labelText);
-            subcodeLabel.setText(subName+" ("+code+")");
-            tagLabel.setText(tag);
-            groupLabel.setText(grpId);
-            stdHourLabel.setText(stdQty+" ("+ durations + ")");  
-            
-            
-            JOptionPane.showMessageDialog(this, "Session Created!");
-           
-            
-            studentcnt.setText("");
-            duration.setText("");
-            subcode.setText("");            
+            if(stdQty.isEmpty() || durations.isEmpty()){
+                JOptionPane.showMessageDialog(this, "All Fields Required!");                
+            }
+            else{
+                
+                if(!(stdQty.matches("[0-9]+") || durations.matches("[0-9]+"))){
+                    JOptionPane.showMessageDialog(this, "Should be Numbers!"); 
+                }else{
+                    
+                    insert.executeUpdate();           
+                    //preview session
+                    String labelText = lecturersList.toString().replace("]", " ");
+
+                    lecLabel.setText(labelText);
+                    subcodeLabel.setText(subName+" ("+code+")");
+                    tagLabel.setText(tag);
+                    groupLabel.setText(grpId);
+                    stdHourLabel.setText(stdQty+" ("+ durations + ")");
+
+                    JOptionPane.showMessageDialog(this, "Session Created!");
+
+                    studentcnt.setText("");
+                    duration.setText("");
+                    subcode.setText("");
+                }
+            }                     
             
            
         } catch (ClassNotFoundException ex) {

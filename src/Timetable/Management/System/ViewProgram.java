@@ -38,7 +38,6 @@ public class ViewProgram extends javax.swing.JFrame {
     public ViewProgram() throws SQLException {
          initComponents();
         setLocationRelativeTo(null);
-        // con = new DBconnection().getDB();
         try{
         showDetails();
         selectRow();
@@ -66,8 +65,8 @@ public class ViewProgram extends javax.swing.JFrame {
        
         
        Statement stmt = null;
-       //con = new DBconnection().getDB();
-       stmt = new DBconnection().getDB().createStatement();
+       con = new DBconnection().getDB();
+       stmt = con.createStatement();
        String sql = "SELECT program from Program";
        
        ResultSet result = stmt.executeQuery(sql);
@@ -226,13 +225,9 @@ public class ViewProgram extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-     try {
-         // TODO add your handling code here:
-         new AddProgram().setVisible(true);
-         this.setVisible(false);
-     } catch (SQLException ex) {
-         Logger.getLogger(ViewProgram.class.getName()).log(Level.SEVERE, null, ex);
-     }
+        // TODO add your handling code here:
+        new AddProgram().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_addActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed

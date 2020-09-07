@@ -36,7 +36,6 @@ public class ViewGeneratedGroups extends javax.swing.JFrame {
     public ViewGeneratedGroups() throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
-        //con = new DBconnection().getDB();
         try{
         showDetails();
         selectRow();
@@ -62,9 +61,9 @@ public class ViewGeneratedGroups extends javax.swing.JFrame {
        
         
        Statement stmt = null;
-      // con = new DBconnection().getDB();
-       stmt = new DBconnection().getDB().createStatement();
-       String sql = "SELECT groupid from GroupIDs order by groupid";
+       con = new DBconnection().getDB();
+       stmt = con.createStatement();
+       String sql = "SELECT groupid from GroupIDs";
        
        ResultSet result = stmt.executeQuery(sql);
         table = (DefaultTableModel) jTable1.getModel(); 
@@ -213,7 +212,7 @@ public class ViewGeneratedGroups extends javax.swing.JFrame {
             model.removeRow(modelIndex);
 
            
-                Statement stmt =new DBconnection().getDB().createStatement();
+                Statement stmt = new DBconnection().getDB().createStatement();
 
                 String sql = "DELETE FROM GroupIDs" +
                 " WHERE groupid  = '"+editable+"'";

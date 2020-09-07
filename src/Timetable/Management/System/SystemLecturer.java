@@ -5,6 +5,10 @@
  */
 package Timetable.Management.System;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author swpas
@@ -164,14 +168,22 @@ public class SystemLecturer extends javax.swing.JFrame {
     }//GEN-LAST:event_ViewLecturerActionPerformed
 
     private void EditLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditLecturerActionPerformed
-        // TODO add your handling code here:
-        new EditLecturer().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new EditLecturer().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(SystemLecturer.class.getName()).log(Level.SEVERE, null, ex);
+        }
         dispose();
     }//GEN-LAST:event_EditLecturerActionPerformed
 
     private void AddLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddLecturerActionPerformed
-        // TODO add your handling code here:
-        new AddLecturer().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new AddLecturer().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(SystemLecturer.class.getName()).log(Level.SEVERE, null, ex);
+        }
         dispose();
     }//GEN-LAST:event_AddLecturerActionPerformed
 

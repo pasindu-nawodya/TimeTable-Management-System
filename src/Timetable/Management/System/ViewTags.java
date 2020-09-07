@@ -39,7 +39,6 @@ public class ViewTags extends javax.swing.JFrame {
     public ViewTags() throws SQLException, ClassNotFoundException {
        initComponents();
         setLocationRelativeTo(null);
-        // con = new DBconnection().getDB();
         try{
         showDetails();
         selectRow();
@@ -66,8 +65,8 @@ public class ViewTags extends javax.swing.JFrame {
        
         
        Statement stmt = null;
-       //con = new DBconnection().getDB();
-       stmt = new DBconnection().getDB().createStatement();
+       con = new DBconnection().getDB();
+       stmt = con.createStatement();
        String sql = "SELECT id,Tag from Tags";
        
        ResultSet result = stmt.executeQuery(sql);
@@ -264,13 +263,9 @@ public class ViewTags extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-         try {
-             // TODO add your handling code here:
-             new AddTags().setVisible(true);
-             this.setVisible(false);
-         } catch (SQLException ex) {
-             Logger.getLogger(ViewTags.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        // TODO add your handling code here:
+        new AddTags().setVisible(true);
+         this.setVisible(false);
     }//GEN-LAST:event_addActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed

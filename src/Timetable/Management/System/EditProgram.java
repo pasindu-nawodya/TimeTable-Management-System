@@ -6,7 +6,6 @@
 package Timetable.Management.System;
 
 import DB.DBconnection;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,7 +20,7 @@ import javax.swing.JOptionPane;
 public class EditProgram extends javax.swing.JFrame {
 
     String value;
-    Connection con;
+    
     /**
      * Creates new form EditProgram
      */
@@ -30,8 +29,6 @@ public class EditProgram extends javax.swing.JFrame {
         initComponents();
         showDetails();
          setLocationRelativeTo(null);
-          //con = new DBconnection().getDB();
-
         
     }
 
@@ -44,7 +41,7 @@ public class EditProgram extends javax.swing.JFrame {
     
        
       
-       Statement stmt =new DBconnection().getDB().createStatement();
+       Statement stmt = new DBconnection().getDB().createStatement();
        String sql = "SELECT program from Program WHERE  program = '"+value+"'";
       
        ResultSet rs = stmt.executeQuery(sql);
@@ -214,7 +211,7 @@ public class EditProgram extends javax.swing.JFrame {
 
             
             try {
-                Statement stmt =new DBconnection().getDB().createStatement();
+                Statement stmt = new DBconnection().getDB().createStatement();
             
              String sql = "UPDATE Program " +
                    "SET program = '"+input+"' WHERE program = '"+value+"'";

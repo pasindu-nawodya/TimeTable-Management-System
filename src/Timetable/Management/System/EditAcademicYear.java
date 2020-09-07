@@ -6,7 +6,6 @@
 package Timetable.Management.System;
 
 import DB.DBconnection;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,7 +21,6 @@ public class EditAcademicYear extends javax.swing.JFrame {
 
     String value;
     Statement stmt = null;
-    Connection con;
     /**
      * Creates new form EditAcademicYear
      */
@@ -31,7 +29,6 @@ public class EditAcademicYear extends javax.swing.JFrame {
         initComponents();
         showDetails();
          setLocationRelativeTo(null);
-        // con = new DBconnection().getDB();
     }
 
     private EditAcademicYear() {

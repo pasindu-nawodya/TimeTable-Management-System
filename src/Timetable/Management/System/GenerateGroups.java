@@ -22,15 +22,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class GenerateGroups extends javax.swing.JFrame {
 
-    Connection con;
-    
+    /**
+     * Creates new form GenerateGroups
+     */
     public GenerateGroups() throws SQLException {
         initComponents();
        showAcademicYear();
        showProgram();
        showGroup();
         setLocationRelativeTo(null);
-         //con = new DBconnection().getDB();
         
     }
 
@@ -38,8 +38,8 @@ public class GenerateGroups extends javax.swing.JFrame {
     public void showAcademicYear() throws SQLException{
     
     Statement stmt = null;
-       //Connection con = new DBconnection().getDB();
-       stmt = new DBconnection().getDB().createStatement();
+       Connection con = new DBconnection().getDB();
+       stmt = con.createStatement();
        String sql = "SELECT Name from AcademicYear";
        
        ResultSet result = stmt.executeQuery(sql);
@@ -58,8 +58,8 @@ public class GenerateGroups extends javax.swing.JFrame {
      public void showProgram() throws SQLException{
     
     Statement stmt = null;
-       //Connection con = new DBconnection().getDB();
-       stmt = new DBconnection().getDB().createStatement();
+       Connection con = new DBconnection().getDB();
+       stmt = con.createStatement();
        String sql = "SELECT Program from Program";
        
        ResultSet result = stmt.executeQuery(sql);
@@ -80,8 +80,8 @@ public class GenerateGroups extends javax.swing.JFrame {
      public void showGroup() throws SQLException{
     
     Statement stmt = null;
-       //Connection con = new DBconnection().getDB();
-       stmt = new DBconnection().getDB().createStatement();
+       Connection con = new DBconnection().getDB();
+       stmt = con.createStatement();
        String sql = "SELECT GroupNumber from GroupNumbers";
        
        ResultSet result = stmt.executeQuery(sql);
@@ -99,8 +99,8 @@ public class GenerateGroups extends javax.swing.JFrame {
      
      public void createTable() throws SQLException{
      
-      //Connection con = new DBconnection().getDB();
-          Statement stmt = new DBconnection().getDB().createStatement();
+      Connection con = new DBconnection().getDB();
+          Statement stmt = con.createStatement();
           String sql = "CREATE TABLE IF NOT EXISTS GroupIDs  " +
                    "(id VARCHAR(225) not NULL, " +
                    " groupid VARCHAR(20) UNIQUE, " + 
@@ -296,9 +296,9 @@ public class GenerateGroups extends javax.swing.JFrame {
         String uniqueID = UUID.randomUUID().toString();
           
            
-          //Connection con = new DBconnection().getDB();
+          Connection con = new DBconnection().getDB();
            
-         Statement stmt = new DBconnection().getDB().createStatement();
+         Statement stmt = con.createStatement();
            
              String sql = "INSERT INTO GroupIDs "
                                 +" VALUES ("

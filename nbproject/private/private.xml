@@ -3,31 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/EditAcademicYear.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/ViewSubgroups.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/ViewGeneratedSubGroups.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/AddLecturer.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/SystemDashboard.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/ViewProgram.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/SystemStudent.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/SystemTags.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/AddProgram.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/EditGroup.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/EditProgram.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/AddGroup.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/GenerateSubGroup.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/EditSubGroup.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/GenerateGroups.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/AddAcademicYear.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/AddSubGroup.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/DB/DBconnection.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/AddTags.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/ViewAcademicYear.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/ViewGroup.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/ViewTags.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/EditTags.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/ViewGeneratedGroups.java</file>
-            <file>file:/E:/SLIIT/3rd%20year/SEM2/SPM/Repo%20For%20Merging/src/Timetable/Management/System/tableCellAlignment.java</file>
+            <file>file:/E:/SLIIT/LECTURE/YEAR%203/SEM%202/SPM/Assesment/SPM-GRP-PROJECT/Time%20Table%20Management%20System/src/Timetable/Management/System/AddLecturer.java</file>
+            <file>file:/E:/SLIIT/LECTURE/YEAR%203/SEM%202/SPM/Assesment/SPM-GRP-PROJECT/Time%20Table%20Management%20System/src/Timetable/Management/System/AddSession.java</file>
+            <file>file:/E:/SLIIT/LECTURE/YEAR%203/SEM%202/SPM/Assesment/SPM-GRP-PROJECT/Time%20Table%20Management%20System/src/Timetable/Management/System/SystemRoom.java</file>
+            <file>file:/E:/SLIIT/LECTURE/YEAR%203/SEM%202/SPM/Assesment/SPM-GRP-PROJECT/Time%20Table%20Management%20System/src/Timetable/Management/System/SystemBuilding.java</file>
+            <file>file:/E:/SLIIT/LECTURE/YEAR%203/SEM%202/SPM/Assesment/SPM-GRP-PROJECT/Time%20Table%20Management%20System/src/Timetable/Management/System/SystemDashboard.java</file>
+            <file>file:/E:/SLIIT/LECTURE/YEAR%203/SEM%202/SPM/Assesment/SPM-GRP-PROJECT/Time%20Table%20Management%20System/src/Timetable/Management/System/SessionSearch.java</file>
+            <file>file:/E:/SLIIT/LECTURE/YEAR%203/SEM%202/SPM/Assesment/SPM-GRP-PROJECT/Time%20Table%20Management%20System/src/Timetable/Management/System/LocationDashboard.java</file>
+            <file>file:/E:/SLIIT/LECTURE/YEAR%203/SEM%202/SPM/Assesment/SPM-GRP-PROJECT/Time%20Table%20Management%20System/src/Timetable/Management/System/ShowBuildingDetails.java</file>
         </group>
     </open-files>
 </project-private>

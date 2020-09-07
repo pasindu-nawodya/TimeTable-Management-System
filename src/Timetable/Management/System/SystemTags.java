@@ -84,15 +84,14 @@ public class SystemTags extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(addTag, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(viewTag, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(470, 470, 470))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(361, 361, 361))))
+                .addComponent(addTag, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(viewTag, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(470, 470, 470))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(339, 339, 339)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,11 +132,7 @@ public class SystemTags extends javax.swing.JFrame {
     }//GEN-LAST:event_viewTagActionPerformed
 
     private void addTagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTagActionPerformed
-        try {
-            new AddTags().setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(SystemTags.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        new AddTags().setVisible(true);
     }//GEN-LAST:event_addTagActionPerformed
 
     private void addTagMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addTagMouseEntered

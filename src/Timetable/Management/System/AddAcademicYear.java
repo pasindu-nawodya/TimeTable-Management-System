@@ -29,16 +29,15 @@ public class AddAcademicYear extends javax.swing.JFrame {
     /**
      * Creates new form AddAcademicYear
      */
-    public AddAcademicYear() throws SQLException {
+    public AddAcademicYear() {
         initComponents();
         setLocationRelativeTo(null);
-         con = new DBconnection().getDB();
     }
 
     
     public void createDBTable() throws SQLException, ClassNotFoundException{
         
-          //con = new DBconnection().getDB();
+          con = new DBconnection().getDB();
           Statement stmt = con.createStatement();
           String sql = "CREATE TABLE IF NOT EXISTS AcademicYear  " +
                    "(id VARCHAR(225) not NULL, " +
@@ -234,7 +233,7 @@ public class AddAcademicYear extends javax.swing.JFrame {
            String uniqueID = UUID.randomUUID().toString();
           
            
-         // con = new DBconnection().getDB();
+          con = new DBconnection().getDB();
            
          Statement stmt = con.createStatement();
            
@@ -306,11 +305,7 @@ public class AddAcademicYear extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-                try {
-                    new AddAcademicYear().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(AddAcademicYear.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new AddAcademicYear().setVisible(true);
                 
             }
         });
