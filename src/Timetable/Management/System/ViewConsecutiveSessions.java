@@ -6,7 +6,6 @@
 package Timetable.Management.System;
 
 import DB.DBconnection;
-import Model.AcademicYearAndSemester;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -94,7 +93,7 @@ public class ViewConsecutiveSessions extends javax.swing.JFrame {
            
            
            while(result1.next()){
-           sessionList = result1.getString("subcode")+"/"+result1.getString("tags")+"/"+result1.getString("groups")+"<br/>"+sessionList;
+           sessionList = result1.getString("subcode")+" | "+result1.getString("tags")+" | "+result1.getString("groups")+"<br/>"+sessionList;
            
            
            }
@@ -200,7 +199,7 @@ public class ViewConsecutiveSessions extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(336, 336, 336)
+                .addGap(372, 372, 372)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)

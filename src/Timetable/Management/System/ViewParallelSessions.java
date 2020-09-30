@@ -41,7 +41,7 @@ public class ViewParallelSessions extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         }catch(Exception e){
             System.out.println(e);
-        JOptionPane.showMessageDialog(this, "Please add consecutive sessions first","Error",JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Please add parallel sessions first","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 public void showDetails() throws SQLException{
@@ -52,7 +52,11 @@ public void showDetails() throws SQLException{
         JLabel headerLabel = (JLabel) rendererFromHeader;
         headerLabel.setHorizontalAlignment(JLabel.CENTER);
         jTable1.getTableHeader().setFont(new Font("TimesNewRoman", Font.PLAIN, 15));
-        
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(10);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(10);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(10);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(10);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(80);
         jTable1.setShowGrid(true);
                   
         //table row alignments to center
@@ -92,7 +96,7 @@ public void showDetails() throws SQLException{
            
            
            while(result1.next()){
-           sessionList = result1.getString("subcode")+"/"+result1.getString("tags")+"/"+result1.getString("groups")+"<br/>"+sessionList;
+           sessionList = result1.getString("subcode")+"|"+result1.getString("tags")+"|"+result1.getString("groups")+"<br/>"+sessionList;
            
            
            }
@@ -110,7 +114,7 @@ public void showDetails() throws SQLException{
              
        
        }
-    
+    con.close();
      }
       
 

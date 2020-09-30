@@ -257,7 +257,7 @@ public class SystemDashboard extends javax.swing.JFrame {
 
     private void SystemSessionOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemSessionOtherActionPerformed
         // TODO add your handling code here:
-         
+         new SystemOtherSessions().setVisible(true);
     }//GEN-LAST:event_SystemSessionOtherActionPerformed
 
     /**

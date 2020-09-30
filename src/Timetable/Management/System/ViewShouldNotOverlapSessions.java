@@ -42,7 +42,7 @@ public class ViewShouldNotOverlapSessions extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         }catch(Exception e){
             System.out.println(e);
-        JOptionPane.showMessageDialog(this, "Please add consecutive sessions first","Error",JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Please add should not overlap sessions first","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -91,7 +91,7 @@ public class ViewShouldNotOverlapSessions extends javax.swing.JFrame {
            
            
            while(result1.next()){
-           sessionList = result1.getString("subcode")+"/"+result1.getString("tags")+"/"+result1.getString("groups")+"<br/>"+sessionList;
+           sessionList = result1.getString("subcode")+" | "+result1.getString("tags")+" | "+result1.getString("groups")+"<br/>"+sessionList;
            
            
            }
@@ -109,7 +109,7 @@ public class ViewShouldNotOverlapSessions extends javax.swing.JFrame {
              
        
        }
-    
+    con.close();
      }
      
      
