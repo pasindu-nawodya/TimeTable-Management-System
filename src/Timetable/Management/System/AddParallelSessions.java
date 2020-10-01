@@ -65,6 +65,7 @@ public class AddParallelSessions extends javax.swing.JFrame {
         String sql1 = "ALTER TABLE parallelsessions AUTO_INCREMENT=10;";
         stmt.executeUpdate(sql);
         stmt.executeUpdate(sql1);
+        con.close();
 
     }
 
@@ -80,7 +81,7 @@ public class AddParallelSessions extends javax.swing.JFrame {
             duration.addItem(rs.getString("hours"));
 
         }
-
+   con.close();
     }
 
     public void tableSettings() {
@@ -223,6 +224,7 @@ public class AddParallelSessions extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setRowHeight(20);
         jScrollPane1.setViewportView(jTable1);
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -318,12 +320,12 @@ public class AddParallelSessions extends javax.swing.JFrame {
                         .addComponent(remove1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(55, 55, 55))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(408, 408, 408)
-                        .addComponent(save1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1234, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(437, 437, 437)
+                .addComponent(save1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,9 +374,9 @@ public class AddParallelSessions extends javax.swing.JFrame {
                             .addComponent(session, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(addSession1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(remove1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(42, 42, 42)
+                .addGap(40, 40, 40)
                 .addComponent(save1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -394,8 +396,11 @@ public class AddParallelSessions extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void durationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_durationActionPerformed
+        
+        group.removeAllItems();
+        
         try {
-            group.removeAllItems();
+            
             sessionDuration = (String) duration.getSelectedItem();
 
             Connection con = new DBconnection().getDB();
@@ -408,9 +413,12 @@ public class AddParallelSessions extends javax.swing.JFrame {
                 group.addItem(rs.getString("groups"));
 
             }
+            stmt = null;
+            con.close();
         } catch (SQLException ex) {
             Logger.getLogger(AddParallelSessions.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
 
 
     }//GEN-LAST:event_durationActionPerformed
@@ -440,7 +448,7 @@ public class AddParallelSessions extends javax.swing.JFrame {
 
             }
             
-            System.out.println(id);
+            
             int sId=00;
             String idToString = Integer.toString(id);
             String[] sessionsArrays = {};
@@ -486,11 +494,12 @@ public class AddParallelSessions extends javax.swing.JFrame {
                 session.addItem(rs2.getString("subcode")+"/"+rs2.getString("tags")+"/"+rs2.getString("groups"));
 
             }
+            
             }
             }
             
             
-            
+            con.close();
         } catch (SQLException ex) {
             Logger.getLogger(AddParallelSessions.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -513,6 +522,7 @@ public class AddParallelSessions extends javax.swing.JFrame {
                 code.addItem(rs.getString("subcode") );
 
             }
+           con.close(); 
         } catch (SQLException ex) {
             Logger.getLogger(AddParallelSessions.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -547,6 +557,7 @@ public class AddParallelSessions extends javax.swing.JFrame {
                 tag.addItem(rs.getString("tags") );
 
             }
+            con.close();
         } catch (SQLException ex) {
             Logger.getLogger(AddParallelSessions.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -586,6 +597,7 @@ public class AddParallelSessions extends javax.swing.JFrame {
                     sessions.add(rs.getInt("id"));
 
                 }
+                con.close();
             } catch (SQLException ex) {
                 Logger.getLogger(AddParallelSessions.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -612,7 +624,7 @@ public class AddParallelSessions extends javax.swing.JFrame {
         sMin = (int) startMin.getValue();
         amPm = (String) ampm.getSelectedItem();
 
-        if (day.getSelectedItem().equals("Select") || duration.getSelectedItem().equals("Select") || sessions.size() == 0 || sHour == 0) {
+        if (day.getSelectedItem().equals("Select") || duration.getSelectedItem().equals("Select") || sHour == 0) {
 
             JOptionPane.showMessageDialog(this, "Please Select Required Information", "Error", JOptionPane.ERROR_MESSAGE);
 
@@ -682,7 +694,6 @@ public class AddParallelSessions extends javax.swing.JFrame {
                 + "'" + time + "',"
                 + "'" + sessionDay + "',"
                 + sessionDuration + ","
-              
                 + "'" + sessionList + "')";
                 
                 stmt.executeUpdate(sql);

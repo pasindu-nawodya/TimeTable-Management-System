@@ -71,6 +71,7 @@ public class AddShouldNotOverlapSession extends javax.swing.JFrame {
         System.out.println(sql);
         stmt.executeUpdate(sql);
         stmt.executeUpdate(sql1);
+        con.close();
 
     }
 
@@ -167,6 +168,7 @@ public class AddShouldNotOverlapSession extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setRowHeight(20);
         jScrollPane1.setViewportView(jTable1);
 
         save.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -221,17 +223,14 @@ public class AddShouldNotOverlapSession extends javax.swing.JFrame {
                                 .addGap(43, 43, 43)
                                 .addComponent(session, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(addSession)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addSession)
+                            .addComponent(remove))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(remove, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(478, 478, 478))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(432, 432, 432))))
+                .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(432, 432, 432))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,17 +250,18 @@ public class AddShouldNotOverlapSession extends javax.swing.JFrame {
                     .addComponent(gLable, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(group, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(session, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addSession, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(remove, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(session, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addSession, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(remove, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
                 .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -283,9 +283,9 @@ public class AddShouldNotOverlapSession extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeActionPerformed
-       
+             group.removeAllItems();
             gtype = (String) type.getSelectedItem();
-            group.removeAllItems();
+            
             
             if(gtype.equals("Main Group")){
             
@@ -325,12 +325,13 @@ public class AddShouldNotOverlapSession extends javax.swing.JFrame {
                         group.addItem(rs.getString("subgroupid"));
                         
                     } 
+                    con.close();
                 } catch (SQLException ex) {
                     Logger.getLogger(AddShouldNotOverlapSession.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
              
-        
+       
     }//GEN-LAST:event_typeActionPerformed
 
     private void groupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupActionPerformed
@@ -349,6 +350,7 @@ public class AddShouldNotOverlapSession extends javax.swing.JFrame {
                session.addItem(rs.getString("subcode")+"/"+rs.getString("tags"));
                 
             }
+            con.close();
         } catch (SQLException ex) {
             Logger.getLogger(AddShouldNotOverlapSession.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -385,7 +387,9 @@ public class AddShouldNotOverlapSession extends javax.swing.JFrame {
 
                     sessions.add(rs.getInt("id"));
 
-                }} catch (SQLException ex) {
+                }
+            con.close();
+            } catch (SQLException ex) {
                     Logger.getLogger(AddParallelSessions.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -423,7 +427,7 @@ public class AddShouldNotOverlapSession extends javax.swing.JFrame {
                 +"'"+sessionList+"')";
                 System.out.println(sql);
                 stmt.executeUpdate(sql);
-
+                con.close();
                 //succes msg
                 JOptionPane.showMessageDialog(this," Details added succesfully","Succesful",JOptionPane.INFORMATION_MESSAGE);
 

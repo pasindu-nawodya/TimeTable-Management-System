@@ -6,7 +6,6 @@
 package Timetable.Management.System;
 
 import DB.DBconnection;
-import Model.AcademicYearAndSemester;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -27,7 +26,6 @@ import javax.swing.table.TableCellRenderer;
 public class ViewNotAvailable extends javax.swing.JFrame {
 
     DefaultTableModel table ;
-    AcademicYearAndSemester object;
     String editable1 = "";
     String editable2= "";
     String editable3 = "";
@@ -87,7 +85,7 @@ public class ViewNotAvailable extends javax.swing.JFrame {
              ResultSet result1 = stmt.executeQuery(sql1);
              
              if(result1.next()){
-              column[1] = result1.getString("subcode")+"/"+result1.getString("tags")+"/"+result1.getString("groups");
+              column[1] = result1.getString("subcode")+" | "+result1.getString("tags")+" | "+result1.getString("groups");
              }
             
              
@@ -104,6 +102,8 @@ public class ViewNotAvailable extends javax.swing.JFrame {
              
        
        }
+       
+       con.close();
     
     }
     
@@ -143,6 +143,8 @@ public class ViewNotAvailable extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("View Not Available Time");
+        setLocationByPlatform(true);
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 1200, 650));
         setMaximumSize(new java.awt.Dimension(1200, 650));
         setMinimumSize(new java.awt.Dimension(1200, 650));
 
@@ -202,9 +204,9 @@ public class ViewNotAvailable extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(355, 355, 355)
+                .addGap(343, 343, 343)
                 .addComponent(add)
-                .addGap(29, 29, 29)
+                .addGap(27, 27, 27)
                 .addComponent(delete)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -270,6 +272,7 @@ public class ViewNotAvailable extends javax.swing.JFrame {
                    " WHERE typeId = '"+editable1+"' and Day = '"+editable2+"' and startTime = '"+editable3+"' and endTime = '"+editable4+"'";
                 
                 stmt.executeUpdate(sql);
+                
             //success msg
             JOptionPane.showMessageDialog(this, "Record deleted succesfully","Successful",JOptionPane.INFORMATION_MESSAGE);
             

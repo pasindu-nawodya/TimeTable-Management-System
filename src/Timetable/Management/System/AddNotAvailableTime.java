@@ -39,16 +39,18 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
           Connection con = new DBconnection().getDB();
           Statement stmt = con.createStatement();
           String sql = "CREATE TABLE IF NOT EXISTS NotAvailableTime  " +
-                   "(id VARCHAR(225) not NULL, " +
+                   "(id int NOT NULL AUTO_INCREMENT, " +
                    " type VARCHAR(25), " + 
                    " typeId VARCHAR(100), " + 
                    " Day VARCHAR(10) , " + 
-                   "  startTime TIME , " + 
-                   "  endTime TIME , " +  
+                   " startTime TIME , " + 
+                   " endTime TIME , " +  
                    " PRIMARY KEY ( id ))"; 
+        String sql1 = "ALTER TABLE NotAvailableTime AUTO_INCREMENT=1000;";
+        stmt.executeUpdate(sql);
+        stmt.executeUpdate(sql1);
+        con.close();  
           
-          
-          stmt.executeUpdate(sql);
       
     }
     public void showDetails() throws SQLException{
@@ -56,7 +58,7 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
         selectbox.removeAllItems();
         if(type.equals("Lecturer")){
             
-            
+              System.out.println("l");
        Statement stmt = null;
        Connection con = new DBconnection().getDB();
        stmt = con.createStatement();
@@ -71,9 +73,9 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
              
        
        }
-       
+       con.close();
        }else if(type.equals("Session")){
-     
+     System.out.println("s");
        Statement stmt = null;
        Connection con = new DBconnection().getDB();
        stmt = con.createStatement();
@@ -87,9 +89,9 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
          selectbox.addItem(result.getString("subcode")+"/"+result.getString("tags")+"/"+result.getString("groups"));
            
        }
-           
+           con.close();
        }else if(type.equals("Group")){
-           
+           System.out.println("g");
        Statement stmt = null;
        Connection con = new DBconnection().getDB();
        stmt = con.createStatement();
@@ -103,7 +105,9 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
          selectbox.addItem(result.getString("groupid"));
            
        }
+       con.close();
        }else if(type.equals("Sub-group")){
+           System.out.println("sub");
         Statement stmt = null;
        Connection con = new DBconnection().getDB();
        stmt = con.createStatement();
@@ -117,6 +121,7 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
          selectbox.addItem(result.getString("subgroupid"));
            
        }
+       con.close();
        }
     
     
@@ -162,9 +167,8 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Not Available Time");
-        setMaximumSize(new java.awt.Dimension(1200, 650));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 1200, 650));
         setMinimumSize(new java.awt.Dimension(1200, 650));
-        setPreferredSize(new java.awt.Dimension(1200, 650));
 
         jPanel1.setMaximumSize(new java.awt.Dimension(1200, 650));
         jPanel1.setMinimumSize(new java.awt.Dimension(1200, 650));
@@ -198,7 +202,7 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
         });
 
         stype.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        stype.setText("Select XXXX");
+        stype.setText("Select ID");
 
         selectbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         selectbox.addActionListener(new java.awt.event.ActionListener() {
@@ -277,8 +281,9 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
                                 .addComponent(amPm1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(360, 360, 360))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(428, 428, 428)
-                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(438, 438, 438)
+                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,9 +322,9 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(41, 41, 41)
+                .addGap(52, 52, 52)
                 .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 82, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -349,8 +354,11 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         type = (String) typebox.getSelectedItem();
-        
-        if(type.equals("Lecturer")){
+        System.out.println(type);
+        if(type.equals("Select")){
+            stype.setText("Select ID");
+            
+        }else if(type.equals("Lecturer")){
             stype.setText("Select Lecturer ID");
             
         }else if(type.equals("Session")){
@@ -362,6 +370,7 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
             stype.setText("Select Sub-group ID");
         }
         try {
+            System.out.println("1");
             showDetails();
         } catch (SQLException ex) {
            // Logger.getLogger(this.class.getName()).log(Level.SEVERE, null, ex);
@@ -530,7 +539,7 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
                         Connection con = new DBconnection().getDB();
                         stmt = con.createStatement();
                         String sql = "SELECT id from session where subcode = '"+sessionArray[0]+"' and tags = '"+sessionArray[1]+"' and groups = '"+sessionArray[2]+"'";
-                        
+                        System.out.println(sql);
                         ResultSet result = stmt.executeQuery(sql);
                         
                         
@@ -540,7 +549,9 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
                             
                             
                             
-                        }        } catch (Exception ex) {
+                        }      
+                    con.close();
+                    } catch (Exception ex) {
                             Logger.getLogger(AddNotAvailableTime.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     
@@ -555,9 +566,8 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
                 
                 Statement stmt = con.createStatement();
                 
-                String sql = "INSERT INTO  NotAvailableTime  "
+                String sql = "INSERT INTO NotAvailableTime(type,typeId,Day,startTime,endTime)  "
                         +" VALUES ("
-                        +"'"+uniqueID+"' ,"
                         +"'"+type+"' ,"
                         +"'"+id+"' ,"
                          +"'"+day+"' ,"
@@ -567,7 +577,7 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
                 
                 
                 stmt.executeUpdate(sql);
-                
+                con.close();
                 
                 //succes msg
                 JOptionPane.showMessageDialog(this," Details added succesfully","Succesful",JOptionPane.INFORMATION_MESSAGE);
@@ -576,7 +586,7 @@ public class AddNotAvailableTime extends javax.swing.JFrame {
                 Logger.getLogger(AddNotAvailableTime.class.getName()).log(Level.SEVERE, null, ex);
                
             }catch (ArithmeticException ex) {
-               JOptionPane.showMessageDialog(this, "Start time should less than end time","Error",JOptionPane.ERROR_MESSAGE);
+               JOptionPane.showMessageDialog(this, "Start time should be less than end time","Error",JOptionPane.ERROR_MESSAGE);
                
             }
           
