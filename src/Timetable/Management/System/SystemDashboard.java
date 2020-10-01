@@ -226,6 +226,7 @@ public class SystemDashboard extends javax.swing.JFrame {
     private void SystemLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemLocationActionPerformed
         // TODO add your handling code here:
         new LocationDashboard().setVisible(true);
+        dispose();
     }//GEN-LAST:event_SystemLocationActionPerformed
 
     private void SystemWorkDaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemWorkDaysActionPerformed
@@ -241,7 +242,8 @@ public class SystemDashboard extends javax.swing.JFrame {
 
     private void SystemStatisticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemStatisticActionPerformed
         // TODO add your handling code here:
-        
+        new SystemStatistics().setVisible(true);
+        dispose();
     }//GEN-LAST:event_SystemStatisticActionPerformed
 
     private void SystemStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemStudentActionPerformed
@@ -285,6 +287,7 @@ public class SystemDashboard extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(SystemDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
